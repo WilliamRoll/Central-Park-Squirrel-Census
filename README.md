@@ -2,11 +2,11 @@
 
 Members
 ----------------
-Rachel Chan
-Zach Kopec
-Sherin Mattappallil
-Kinnari Patel
-Bill Roll
+Rachel Chan /
+Zach Kopec /
+Sherin Mattappallil /
+Kinnari Patel /
+Bill Roll 
 
 Topic
 ----------------
