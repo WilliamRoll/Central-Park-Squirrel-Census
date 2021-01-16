@@ -2,7 +2,7 @@
 
 Members
 ----------------
-Rachel Chan /
+Rachel Chan -
 Zach Kopec /
 Sherin Mattappallil /
 Kinnari Patel /
