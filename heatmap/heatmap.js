@@ -1,10 +1,8 @@
-// Creating map object
 var myMap = L.map("map", {
-  center: [40.7128, -74.0059],
-  zoom: 11
+  center: [37.7749, -122.4194],
+  zoom: 13
 });
 
-// Adding tile layer
 L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
   tileSize: 512,
@@ -14,38 +12,25 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-// Use this link to get the geojson data.
-var link = "test.json";
+var url = "https://data.sfgov.org/resource/cuks-n6tp.json?$limit=10000";
 
+d3.json(url, function(response) {
 
-// Function that will determine the color of a neighborhood based on the borough it belongs to
-function chooseColor(_primary_fur_color) {
-  switch (_primary_fur_color) {
-  case "Gray":
-    return "yellow";
-  case "Cinnamon":
-    return "red";
-  case "Black":
-    return "orange";
-  case "":
-    return "green";
-  default:
-    return "black";
+  console.log(response);
+
+  var heatArray = [];
+
+  for (var i = 0; i < response.length; i++) {
+    var location = response[i].location;
+
+    if (location) {
+      heatArray.push([location.coordinates[1], location.coordinates[0]]);
+    }
   }
-}
-console.log(chooseColor(2415));
 
-// // Grabbing our GeoJSON data..
-// d3.json(link, function(data) {
-//   // Creating a geoJSON layer with the retrieved data
-//   L.geoJson(data, {
-//     style: function(x) {
-//       return {
-//         color: "white",
-//         fillColor: chooseColor(x.primary_fur_color),
-//         fillOpacity: 0.5,
-//         weight: 1.5
-//       };
-//     }
-//   }).addTo(myMap);
-// });
+  var heat = L.heatLayer(heatArray, {
+    radius: 20,
+    blur: 35
+  }).addTo(myMap);
+
+});
