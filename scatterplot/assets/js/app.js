@@ -31,7 +31,7 @@ var chartGroup = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // retrieving test.json data
-d3.json("test.json").then(function(testData) {
+d3.json(".assets/data/test.json").then(function(testData) {
     testData.forEach(function(data){
         data.primary_fur_color = +data.primary_fur_color;
         data.chasing = +data.chasing;
@@ -104,8 +104,5 @@ d3.json("test.json").then(function(testData) {
 }).catch(function(error) {
    console.log(error);
 });
-
-
-
 
 
