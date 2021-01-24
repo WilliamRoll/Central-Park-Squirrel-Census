@@ -1,4 +1,6 @@
-  
 d3.json("/raw-web-api", function (myData) { 
-    console.log(myData);
+    data = myData
+    console.log(data); 
+});
+
     

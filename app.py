@@ -3,7 +3,6 @@ from flask_pymongo import PyMongo
 from flask import Flask, jsonify, render_template, redirect
 from bson.json_util import dumps
 from pymongo import MongoClient
-#from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 
@@ -23,23 +22,14 @@ def heat_mapping():
 def scatter_plot():
     return render_template("scatter.html")
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
-
 @app.route("/raw-web-api.html")
 def data_api():
-    squirrel_data = get_squirrel_data_from_db
-    
     return render_template("raw-web-api.html")
-
 
 #route that will return Web API JSON data
 @app.route("/raw-web-api")
 def scrape():
-    squirrel_data = get_squirrel_data_from_db
-
+    squirrel_data = get_squirrel_data_from_db()
     return jsonify(squirrel_data)
 
 #function that queries database and returns the data
@@ -49,8 +39,10 @@ def get_squirrel_data_from_db():
     db = client.Squirrel_db
     collection = db.Squirrel
 
-    results_dict = list(collection.find())
-
+    results_dict = list(collection.find({}, {'_id':False}))
     client.close()
 
     return results_dict
+
+if __name__ == "__main__":
+    app.run(debug=True)
