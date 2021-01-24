@@ -46,7 +46,12 @@ if __name__ == "__main__":
 # for x in mydoc:
 #     print(x)
 
+#route that will return Web API JSON data
+@app.route("/raw-web-api")
+def scrape():
+    squirrel_data = get_squirrel_data_from_db
 
+    return jsonify(squirrel_data)
 
 #function that queries database and returns the data
 def get_squirrel_data_from_db():
