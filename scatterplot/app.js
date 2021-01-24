@@ -76,23 +76,34 @@ d3.json("test.json").then(function(testData) {
         });
         
     chartGroup.call(tTip);
-
-
-        
-});
+// event listeners
+    circlesGroup.on("click", function(data) {
+      tTip.show(data, this);
+  })
+ 
+      .on("mouseout", function(data, index) {
+        tTip.hide(data);
     });
+// labels
+    chartGroup.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 40)
+      .attr("x", 0 - (height / 2))
+      .attr("dy", "1em")
+      .attr("font-weight", "bold")
+      .attr("font-size", "12")
+      .attr("class", "axisText")
+      .text("Fur Color");
 
-
-
-
-
-
-
-
-
-
-
-
+    chartGroup.append("text")
+      .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
+      .attr("class", "axisText")
+      .attr("font-weight", "bold")
+      .attr("font-size", "12")
+      .text("Chasing");
+}).catch(function(error) {
+   console.log(error);
+});
 
 
 
