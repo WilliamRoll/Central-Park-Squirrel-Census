@@ -37,8 +37,33 @@ var chartGroup = svg.append("g")
 d3.json("test.json").then(function(testData)
 
     {
-        console.log(testData);
     
+        testData.forEach(function(data){
+            data.primary_fur_color = +data.primary_fur_color;
+            data.chasing = +data.chasing;
+
+// scalar function
+        var xLinearScale = d3.scaleLinear()
+     	    .domain([20, d3.max(testData, d => d.primary_fur_color)])
+      	    .range([0, width]);
+
+       var yLinearScale = d3.scaleLinear()
+     	    .domain([0, d3.max(testData, d => d.chasing)])
+            .range([height, 0]);
+
+// axis functions
+        var bAxis = d3.axisBottom(xLinearScale);
+        var lAxis = d3.axisLeft(yLinearScale);
+
+// Appending axes 
+
+        chartGroup.append("g")
+            .attr("transform", `translate(0, ${height})`)
+            .call(bAxis);
+
+        chartGroup.append("g")
+            .call(lAxis);
+             
     });
 
 
