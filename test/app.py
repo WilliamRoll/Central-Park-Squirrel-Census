@@ -24,16 +24,27 @@ def scatter_plot():
     return render_template("scatter.html")
 
 if __name__ == "__main__":
+    # client = MongoClient()
+    # db = client['Test']
+    # collection = db['Squirrel']
+    # cursor = collection.find({})
+    # with open('collection.json', 'w') as file:
+    #     file.write('[')
+    #     for document in cursor:
+    #         file.write(dumps(document))
+    #         file.write(',')
+    #     file.write(']')
     app.run(debug=True)
 
+# conn = 'mongodb://localhost:27017'
+# client = MongoClient(conn)
+# db = client['Test']
+# sqs = db['Squirrel']
 
+# mydoc = db.find(sqs)
 
-@app.route("/raw-web-api.html")
-def data_api():
-    squirrel_data = get_squirrel_data_from_db
-    
-    return render_template("raw-web-api.html")
-
+# for x in mydoc:
+#     print(x)
 
 #route that will return Web API JSON data
 @app.route("/raw-web-api")
