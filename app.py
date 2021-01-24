@@ -45,3 +45,16 @@ if __name__ == "__main__":
 
 # for x in mydoc:
 #     print(x)
+
+
+
+#function that queries database and returns the data
+def get_squirrel_data_from_db():
+    client = MongoClient('mongodb://localhost:27017/')
+    
+    db = client.Squirrel_db
+    collection = db.Squirrel
+
+    for doc in collection.find():
+        print(doc)
+
