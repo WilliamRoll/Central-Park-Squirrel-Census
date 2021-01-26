@@ -28,5 +28,4 @@ var chartGroup = svg.append("g")
 d3.json("/raw-web-api", function (myData) { 
     data = myData
     console.log(data); 
-
 });
