@@ -20,29 +20,36 @@ d3.json("/raw-web-api", function (mydata) {
 
   var locationArray = [];
   var colorArray = [];
+  var ChasingArray = [];
   for (var i = 0; i < data.length; i++) {
     var location = data[i].geocoded_column;
     var color = data[i].primary_fur_color;
+    var chasing = data[i].chasing;
+    // if (chasing == True){
+    //   behaviourArray.push([location.coordinates[1], location.coordinates[0]]);
+    // }
     if (location) {
-      locationArray.push([location.coordinates[1], location.coordinates[0]]);
+      // locationArray.push([location.coordinates[1], location.coordinates[0]]);
+      L.marker([location.coordinates[1], location.coordinates[0]]).addTo(myMap);
     }
     if (color) {
       colorArray.push(color);
     }
+
   }
   // var heat = L.heatLayer(heatArray, {
   //   radius: 20,
   //   blur: 35
   // }).addTo(myMap);
-  console.log(locationArray);
+  // console.log(locationArray);
   console.log(colorArray);
-  var data = [
-    {z: locationArray,
-      x: colorArray,
-      y: ['Morning', 'Afternoon', 'Evening'],
-      type: 'heatmap'
-    }
-  ];
+  // var data = [
+  //   {z: locationArray,
+  //     x: colorArray,
+  //     y: ['Morning', 'Afternoon', 'Evening'],
+  //     type: 'heatmap'
+  //   }
+  // ];
   
-  Plotly.newPlot('map', data);
+  // Plotly.newPlot('map', data);
 });
