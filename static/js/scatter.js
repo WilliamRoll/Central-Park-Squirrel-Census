@@ -28,69 +28,74 @@ var chartGroup = svg.append("g")
 d3.json("/raw-web-api", function (myData) { 
     data = myData
     console.log(data); 
-// loop
 
-    myData.forEach(function(data){
-        data.primary_fur_color = +data.primary_fur_color;
-        data.chasing = +data.chasing;
-        console.log(data.primary_fur_color);
-        console.log(data.chasing);
-    
+    color_arr = []
+    chase_arr = []
+
+    // loop
+    data.forEach(function(dataSet){
+    primary_color = dataSet.primary_fur_color;
+    chase = dataSet.chasing;
+    color_arr.push(primary_color)
+    chase_arr.push(chase)
     });
 
-// scale functions
-    var xLinearScale = d3.scaleLinear()
-    .domain([20, d3.max(myData, d => d.primary_fur_color)])
+    console.log(color_arr);
+    console.log(chase_arr);
+
+    // scale functions
+    var xLinearScale = d3.Linear()
+    .domain([20, d3.max(data, d => d.primary_fur_color)])
     .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(myData, d => d.chasing)])
+    .domain([0, d3.max(data, d => d.chasing)])
     .range([height, 0]);
 
-// axis functions
+    // axis functions
     var bAxis = d3.axisBottom(xLinearScale);
     var lAxis = d3.axisLeft(yLinearScale);
 
     // Appending axes 
     chartGroup.append("g")
-      .attr("transform", `translate(0, ${height})`)
-      .call(bAxis);
+    .attr("transform", `translate(0, ${height})`)
+    .call(bAxis);
 
     chartGroup.append("g")
-      .call(lAxis);
+    .call(lAxis);
 
-// circles
+    // circles
 
     var circlesGroup = chartGroup.selectAll("circle")
-    	.data(myData)
-    	.enter()
-    	.append("circle")
-    	.attr("cx", d => xLinearScale(d.primary_fur_color))
-    	.attr("cy", d => yLinearScale(d.chasing))
-    	.attr("r", "15")
-    	.attr("fill", "green")
-    	.attr("opacity", ".3");
+        .data(myData)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xLinearScale(d.primary_fur_color))
+        .attr("cy", d => yLinearScale(d.chasing))
+        .attr("r", "15")
+        .attr("fill", "green")
+        .attr("opacity", ".3");
 
-// tooltip
+    // tooltip
     var tTip = d3.tip()
-      .attr("class", "tooltip")
-      .offset([80, -60])
-      .html(function(d) {
-        return (`${d.myData}<br> Primary Fur Color : ${d.primary_fur_color}<br>Chasing: ${d.chasing}`);
-      });
+    .attr("class", "tooltip")
+    .offset([80, -60])
+    .html(function(d) {
+        return (`${d.data}<br> Primary Fur Color : ${d.primary_fur_color}<br>Chasing: ${d.chasing}`);
+    });
 
-//calltool tip
+    //calltool tip
     chartGroup.call(tTip);
-  
-// event listeners
+
+    // event listeners
     circlesGroup.on("click", function(data) {
         tTip.show(data, this);
-      })
-     
+    })
+    
         .on("mouseout", function(data, index) {
-          tTip.hide(data);
+        tTip.hide(data);
         });
-  // labels
+    // labels
     chartGroup.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left + 40)
@@ -100,14 +105,15 @@ d3.json("/raw-web-api", function (myData) {
         .attr("font-size", "12")
         .attr("class", "axisText")
         .text("Fur Color");
-  
+
     chartGroup.append("text")
         .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
         .attr("class", "axisText")
         .attr("font-weight", "bold")
         .attr("font-size", "12")
         .text("Chasing");
-  
-}).catch(function(error) {
+
+    }).catch(function(error) {
     console.log(error);
+
 });
