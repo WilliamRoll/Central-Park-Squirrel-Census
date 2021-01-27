@@ -1,34 +1,28 @@
-// area dimensions
-var svgWidth = 900;
-var svgHeight = 480;
+// // area dimensions
+// var svgWidth = 900;
+// var svgHeight = 660;
 
-//margin for charts are here 
-var margin = {
-    top: 35,
-    right: 45,
-    bottom: 65,
-    left: 95
-};
+// //margin for charts are here 
+// var margin = {
+//     top: 30,
+//     right: 30,
+//     bottom: 30,
+//     left: 30
+// };
 
-var width = svgWidth - margin.left - margin.right;
-var height = svgHeight - margin.top - margin.bottom;
+// var chartWidth = svgWidth - chartMargin.left - chartMargin.right;
+// var chartHeight = svgHeight - chartMargin.top - chartMargin.bottom;
 
-// svg wrapper
-var svg = d3
-    .select("#scatter")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight)
+// // svg wrapper
+// var svg = d3
+//     .select("#scatter")
+//     .append("svg")
+//     .attr("width", svgWidth)
+//     .attr("height", svgHeight)
 
-//append
-var chartGroup = svg.append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-//Creating counters
-var gray_approach_count=0
-var cinnamon_approach_count=0
-var black_approach_count=0
-// var gray_true_dict = []
+// //append
+// var chartGroup = svg.append("g")
+//   .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
 // retrieving test.json data
 d3.json("/raw-web-api", function (myData) { 
@@ -37,8 +31,12 @@ d3.json("/raw-web-api", function (myData) {
 
     // color_arr = []
     // chase_arr = []
-    var gray_true_dict=[];
-    var colors_true_dict=[]
+    // var gray_true_dict=[];
+
+    var gray_approach_count=0
+    var cinnamon_approach_count=0
+    var black_approach_count=0
+    // var gray_true_dict =[]
 
     // loop
     for (var index = 0; index < data.length; index++){
@@ -46,23 +44,43 @@ d3.json("/raw-web-api", function (myData) {
         var primary_color = data[index].primary_fur_color;
         // console.log(primary_color)
         
-        if (approach="True"){
-            colors_true_dict.push({
-                key: primary_color,
-                value: approach
-            })
+        if(approach=="True" && primary_color=="Gray"){
+            gray_approach_count+=1
+        }
+        else if (approach=="True" && primary_color=="Cinnamon") {
+            cinnamon_approach_count+=1
+          }
+        else if (approach=="True" && primary_color=="Black") {
+            black_approach_count+=1
         }
 
-        if (approach=="True" && primary_color=="Gray"){
-            gray_true_dict.push({
-                key: "Gray",
-                value: "True"
+        // if (approach="True"){
+        //     colors_true_dict.push({
+        //         key: primary_color,
+        //         value: approach
+        //     })
+        // }
 
-            })
-        }
+        // if (approach=="True" && primary_color=="Gray"){
+        //     gray_true_dict.push({
+        //         key: "Gray",
+        //         value: gray_approach_count
+
+        //     })
+        // }
     }
-    console.log(gray_true_dict)
-    console.log(colors_true_dict)
+    // console.log(gray_true_dict)
+    console.log(gray_approach_count)
+
+    var true_dict = {
+        "Gray": gray_approach_count,
+        "Cinnamon": cinnamon_approach_count,
+        "Black": black_approach_count
+    };
+
+    console.log(true_dict)
+
+    // console.log(colors_true_dict)
 
     // // loop
     // data.forEach(function(dataSet){
