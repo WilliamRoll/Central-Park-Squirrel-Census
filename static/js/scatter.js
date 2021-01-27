@@ -1,13 +1,16 @@
 // area dimensions
+
+// barchart??
+
 var svgWidth = 900;
-var svgHeight = 480;
+var svgHeight = 460;
 
 //margin for charts are here 
 var margin = {
-    top: 35,
-    right: 45,
-    bottom: 65,
-    left: 95
+    top: 40,
+    right: 40,
+    bottom: 40,
+    left: 40
 };
 
 var width = svgWidth - margin.left - margin.right;
@@ -15,7 +18,7 @@ var height = svgHeight - margin.top - margin.bottom;
 
 // svg wrapper
 var svg = d3
-    .select("#scatter")
+    .select("#color_barchart")
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight)
@@ -26,94 +29,69 @@ var chartGroup = svg.append("g")
 
 // retrieving test.json data
 d3.json("/raw-web-api", function (myData) { 
-    data = myData
-    console.log(data); 
+    
+    console.log(myData); 
 
-    color_arr = []
-    chase_arr = []
+// BAR CHART variables:  Primary Fur color and Approaches
 
-    // loop
-    data.forEach(function(dataSet){
+    color_array = []
+
+    approaches_array = []
+
+// looping 
+
+    myData.forEach(function(dataSet){
+
     primary_color = dataSet.primary_fur_color;
-    chase = dataSet.chasing;
-    color_arr.push(primary_color)
-    chase_arr.push(chase)
+
+    dataSet.approaches = +dataSet.approaches;
+
+   // approachings = dataSet.approaches;
+
+    color_array.push(primary_color)
+    approaches_array.push(approaches)
+
     });
+// console log
+    console.log(color_array);
+    console.log( approaches_array);
 
-    console.log(color_arr);
-    console.log(chase_arr);
+// bandscale--- horizontal axis
+    var xBandScale = d3.scaleBand()
+        .domain(myData.map(dataSet => dataSet.primary_fur_color))
+        .range([0, width])
+        .padding(0.2);
 
-    // scale functions
-    var xLinearScale = d3.Linear()
-    .domain([20, d3.max(data, d => d.primary_fur_color)])
-    .range([0, width]);
-
+// linearscale --- vertical axis
     var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.chasing)])
-    .range([height, 0]);
+        .domain([0, d3.max(myData, dataSet => dataSet.age)])
+        .range([height, 0]);
 
-    // axis functions
-    var bAxis = d3.axisBottom(xLinearScale);
-    var lAxis = d3.axisLeft(yLinearScale);
 
-    // Appending axes 
+// axis functions
+    var bAxis = d3.axisBottom(xBandScale);
+    var lAxis = d3.axisLeft(yLinearScale).ticks(5);
+
+// Appending axes 
     chartGroup.append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(bAxis);
+        .attr("transform", `translate(0, ${height})`)
+        .call(bAxis);
 
     chartGroup.append("g")
-    .call(lAxis);
+        .call(lAxis);
 
-    // circles
-
-    var circlesGroup = chartGroup.selectAll("circle")
+  // making the svg rectangle w/ the scales
+    chartGroup.selectAll(".bar")
         .data(myData)
         .enter()
-        .append("circle")
-        .attr("cx", d => xLinearScale(d.primary_fur_color))
-        .attr("cy", d => yLinearScale(d.chasing))
-        .attr("r", "15")
-        .attr("fill", "green")
-        .attr("opacity", ".3");
+        .append("rect")
+        .attr("class", "bar")
+        .attr("fill", "blue")
+        .attr("x", dataSet => xBandScale(d.primary_fur_color))
+        .attr("y", dataSet => yLinearScale(d.age))
+        .attr("width", xBandScale.bandwidth())
+        .attr("height", dataSet => height - yLinearScale(d.age))
 
-    // tooltip
-    var tTip = d3.tip()
-    .attr("class", "tooltip")
-    .offset([80, -60])
-    .html(function(d) {
-        return (`${d.data}<br> Primary Fur Color : ${d.primary_fur_color}<br>Chasing: ${d.chasing}`);
-    });
-
-    //calltool tip
-    chartGroup.call(tTip);
-
-    // event listeners
-    circlesGroup.on("click", function(data) {
-        tTip.show(data, this);
-    })
-    
-        .on("mouseout", function(data, index) {
-        tTip.hide(data);
-        });
-    // labels
-    chartGroup.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left + 40)
-        .attr("x", 0 - (height / 2))
-        .attr("dy", "1em")
-        .attr("font-weight", "bold")
-        .attr("font-size", "12")
-        .attr("class", "axisText")
-        .text("Fur Color");
-
-    chartGroup.append("text")
-        .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
-        .attr("class", "axisText")
-        .attr("font-weight", "bold")
-        .attr("font-size", "12")
-        .text("Chasing");
-
-    }).catch(function(error) {
+}).catch(function(error) {
     console.log(error);
-
 });
