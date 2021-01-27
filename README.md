@@ -20,11 +20,28 @@ Data Set
 ----------------
 https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
 
-Goals
+Summary of Goals
 ----------------
 * Query data using API url.
 * Plotting behavior of squirrels
 * Visualizations will include scatterplot, heatmap etc. 
+
+
+Steps Taken
+----------------
+
+###  
+*
+### ETL Process 
+* 
+* Loading Data
+
+
+
+### Creation of  Visualizations
+* Heatmap 
+
+
 
 
 Inspiration
