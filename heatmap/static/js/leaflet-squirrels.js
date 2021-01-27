@@ -1,9 +1,11 @@
+
+
 function createMap(squirrels) {
 
     // Create the tile layer that will be the background of our map
     var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
       attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-      maxZoom: 18,
+      maxZoom: 20,
       id: "light-v10",
       accessToken: API_KEY
     });
@@ -19,9 +21,9 @@ function createMap(squirrels) {
     };
   
     // Create the map object with options
-    var map = L.map("map-id", {
-      center: [40.73, -74.0059],
-      zoom: 12,
+    var map = L.map("map", {
+      center: [40.79, -73.96],
+      zoom: 16,
       layers: [lightmap, squirrels]
     });
   
@@ -44,7 +46,7 @@ d3.json("/raw-web-api", function (mydata) {
         var colorArray = [];
         var ChasingArray = [];
         // Loop through the stations array
-        for (var index = 0; index < response.length; index++) {
+        for (var index = 0; index < response.length; 100) {
         var location = response[index].geocoded_column;
         var color = response[index].primary_fur_color;
         var chasing = response[index].chasing;
