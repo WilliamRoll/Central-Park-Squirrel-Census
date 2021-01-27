@@ -40,9 +40,11 @@ Summary of Steps Taken
 ### MongoDB
 *
 
+### Flask
+*
+
 ### Creation of  Visualizations
 * Heatmap 
-
 
 
 
