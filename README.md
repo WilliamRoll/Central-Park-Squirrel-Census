@@ -27,16 +27,18 @@ Summary of Goals
 * Visualizations will include scatterplot, heatmap etc. 
 
 
-Steps Taken
+Summary of Steps Taken
 ----------------
 
-###  
+###  Web API 
 *
+
 ### ETL Process 
 * 
 * Loading Data
 
-
+### MongoDB
+*
 
 ### Creation of  Visualizations
 * Heatmap 
