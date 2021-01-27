@@ -57,7 +57,7 @@ function fillColor(data) {
     data = mydata
     console.log(data); 
   
-    var earthquakes = L.geoJSON(data, {
+    var earthquakes = L.json(data, {
       // Create circle markers
       pointToLayer: function (data, latlng) {
         var geojsonMarkerOptions = {
@@ -85,7 +85,7 @@ function fillColor(data) {
       "opacity": 1,
       fillOpacity: 0,
     };
-    var plates = L.geoJSON(data, {
+    var plates = L.json(data, {
       style: platesStyle
     });
   

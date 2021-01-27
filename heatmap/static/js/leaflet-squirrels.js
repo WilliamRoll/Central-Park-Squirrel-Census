@@ -62,4 +62,31 @@ d3.json("/raw-web-api", function (mydata) {
         createMap(L.layerGroup(locationArray));
     }
     createMarkers(response);
+     // Setting up the legend
+     var legend = L.control({ position: "bottomright" });
+     legend.onAdd = function() {
+       var div = L.DomUtil.create("div", "info legend");
+       var limits = ["Approaches", "Chasing", "Climbing", "Eating", "Running", "Inactive"];
+       var labelsColor = [];
+       var labelsText = [];
+       var colors = ["#7FFF00", "#dfedbe", "#eede9f", "#FF8C00", "	#FA8072", "#FF0000"]
+       // Add min & maxfil
+       limits.forEach(function(limit, index) {
+         labelsColor.push(`<li style="background-color: ${colors[index]};"></li>`); // <span class="legend-label">${limits[index]}</span>
+         labelsText.push(`<span class="legend-label">${limits[index]}</span>`)
+       });
+ 
+       var labelsColorHtml =  "<ul>" + labelsColor.join("") + "</ul>";
+       var labelsTextHtml = `<div id="labels-text">${labelsText.join("<br>")}</div>`;
+ 
+       var legendInfo = "<h4>Squirrel<br>Behaviour</h4>" +
+         "<div class=\"labels\">" + labelsColorHtml + labelsTextHtml
+         "</div>";
+       div.innerHTML = legendInfo;
+ 
+       return div;
+     };
+ 
+     // Adding legend to the map
+     legend.addTo(map);
 });
