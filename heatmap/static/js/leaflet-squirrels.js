@@ -1,4 +1,25 @@
 
+function fillColor(data) {
+    var colors = ["#7FFF00", "#dfedbe", "#eede9f", "#FF8C00", "	#FA8072", "#FF0000"]
+  if (data.approaches == "True") {
+    return colors[0]
+  }
+  else if (data.chasing == "True") {
+    return colors[1]
+  }
+  else if (data.climbing == "True") {
+    return colors[2]
+  }
+  else if (data.eating == "True") {
+    return colors[3]
+  }
+  else if (data.running == "True") {
+    return colors[4]
+  }
+  else {
+    return colors[5]
+  }
+}
 
 function createMap(squirrels) {
 
@@ -46,13 +67,14 @@ d3.json("/raw-web-api", function (mydata) {
         var colorArray = [];
         var ChasingArray = [];
         // Loop through the stations array
-        for (var index = 0; index < response.length; 100) {
+        for (var index = 0; index < response.length; index++) {
         var location = response[index].geocoded_column;
         var color = response[index].primary_fur_color;
         var chasing = response[index].chasing;
+        var behaviour = fillColor(response[index]);
         // For each station, create a marker and bind a popup with the station's name
         var squirrelMarker = L.marker([location.coordinates[1], location.coordinates[0]])
-            .bindPopup("<h3>" + color + "<h3><h3>Approaching " + chasing + "</h3>");
+            .bindPopup("<h3>" + color + "<h3><h3>Approaching " + behaviour + "</h3>");
     
         // Add the marker to the bikeMarkers array
         locationArray.push(squirrelMarker);
@@ -63,30 +85,30 @@ d3.json("/raw-web-api", function (mydata) {
     }
     createMarkers(response);
      // Setting up the legend
-     var legend = L.control({ position: "bottomright" });
-     legend.onAdd = function() {
-       var div = L.DomUtil.create("div", "info legend");
-       var limits = ["Approaches", "Chasing", "Climbing", "Eating", "Running", "Inactive"];
-       var labelsColor = [];
-       var labelsText = [];
-       var colors = ["#7FFF00", "#dfedbe", "#eede9f", "#FF8C00", "	#FA8072", "#FF0000"]
-       // Add min & maxfil
-       limits.forEach(function(limit, index) {
-         labelsColor.push(`<li style="background-color: ${colors[index]};"></li>`); // <span class="legend-label">${limits[index]}</span>
-         labelsText.push(`<span class="legend-label">${limits[index]}</span>`)
-       });
+    //  var legend = L.control({ position: "bottomright" });
+    //  legend.onAdd = function() {
+    //    var div = L.DomUtil.create("div", "info legend");
+    //    var limits = ["Approaches", "Chasing", "Climbing", "Eating", "Running", "Inactive"];
+    //    var labelsColor = [];
+    //    var labelsText = [];
+    //    var colors = ["#7FFF00", "#dfedbe", "#eede9f", "#FF8C00", "	#FA8072", "#FF0000"]
+    //    // Add min & maxfil
+    //    limits.forEach(function(limit, index) {
+    //      labelsColor.push(`<li style="background-color: ${colors[index]};"></li>`); // <span class="legend-label">${limits[index]}</span>
+    //      labelsText.push(`<span class="legend-label">${limits[index]}</span>`)
+    //    });
  
-       var labelsColorHtml =  "<ul>" + labelsColor.join("") + "</ul>";
-       var labelsTextHtml = `<div id="labels-text">${labelsText.join("<br>")}</div>`;
+    //    var labelsColorHtml =  "<ul>" + labelsColor.join("") + "</ul>";
+    //    var labelsTextHtml = `<div id="labels-text">${labelsText.join("<br>")}</div>`;
  
-       var legendInfo = "<h4>Squirrel<br>Behaviour</h4>" +
-         "<div class=\"labels\">" + labelsColorHtml + labelsTextHtml
-         "</div>";
-       div.innerHTML = legendInfo;
+    //    var legendInfo = "<h4>Squirrel<br>Behaviour</h4>" +
+    //      "<div class=\"labels\">" + labelsColorHtml + labelsTextHtml
+    //      "</div>";
+    //    div.innerHTML = legendInfo;
  
-       return div;
-     };
+    //    return div;
+    //  };
  
-     // Adding legend to the map
-     legend.addTo(map);
+    //  // Adding legend to the map
+    //  legend.addTo(map);
 });
