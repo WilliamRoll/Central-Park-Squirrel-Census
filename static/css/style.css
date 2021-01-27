@@ -1,25 +1,59 @@
-  
-div.content {
-    margin: 15px;
+/* Your stylesheet */
+
+/* color of latitude button */
+.navbar-brand
+{
+    background-color:#006600;
+    padding: 5pt;
+    color: white;
 }
 
-nav {
-    margin-bottom: 15px;
+/* text of latitude button */
+.navbar-light .navbar-brand {
+    color:white;
+    font-weight:bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 
-li.active {
-    background-color: #5b6e82;
+/* hover feature */
+
+.nav-item > a:hover {
+    background-color: lightgray
 }
 
-table {
-    width: 300px !important;
+.dropdown-menu > a:hover {
+    background-color: lightgray
 }
 
-.center {
-    margin-left: auto;
-    margin-right: auto;
+/* headings */
+
+h1 {
+  font-size: 25px;
+  color: #00cc66;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-h2 {
-    color: darkslategrey;
+h4 {
+  color: #00cc66;
+  text-align: center;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+/* container */
+.container{
+
+    position: relative;
+    padding:50pt;
+    top: 55pt;
+    background-color:white;
+
+}
+
+/* background color */
+body{
+    background-color:lightgray;
+}
+
