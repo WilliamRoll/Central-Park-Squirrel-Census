@@ -1,4 +1,4 @@
-// barchart??
+// Bar Chart
 
 var svgWidth = 600;
 var svgHeight = 500;
@@ -20,7 +20,19 @@ var svg = d3
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight)
+    
+    ///////////////////////////////////////////////////////////
+    //ATTEMPT TO MAKE RESPONSIVE
+    .attr('preserveAspectRatio', 'xMinYMin meet')
+    .attr(
+      'viewBox',
+      '0 0 ' +
+        (width + margin.left + margin.right) +
+        ' ' +
+        (height + margin.top + margin.bottom)
+    )
 
+    ///////////////////////////////////////////////////////////
 
 //append
 var chartGroup = svg.append("g")
@@ -36,12 +48,11 @@ d3.json("/raw-web-api", function (myData) {
     var cinnamon_approach_count=0
     var black_approach_count=0
 
-
     // loop
     for (var index = 0; index < data.length; index++){
         var approach = data[index].approaches;
         var primary_color = data[index].primary_fur_color;
-        // console.log(primary_color)
+        console.log(primary_color)
         
         if(approach=="True" && primary_color=="Gray"){
             gray_approach_count+=1
@@ -52,10 +63,7 @@ d3.json("/raw-web-api", function (myData) {
         else if (approach=="True" && primary_color=="Black") {
             black_approach_count+=1
         }
-
-        
     }
-
 
     var true_dict = {
         "Gray": gray_approach_count,
@@ -72,9 +80,6 @@ d3.json("/raw-web-api", function (myData) {
     
     console.log(true_array)
 
-
-    //////////////////////
-
     // Configure a band scale for the horizontal axis with a padding of 0.1 (10%)
     var xBandScale = d3.scaleBand()
         .domain(true_array.map(d => d.key))
@@ -83,7 +88,7 @@ d3.json("/raw-web-api", function (myData) {
 
     // Create a linear scale for the vertical axis.
     var yLinearScale = d3.scaleLinear()
-        .domain([0, d3.max(true_array, d => d.value)])
+        .domain([0, d3.max(true_array, d => d.value + 10)])
         .range([height, 0]);
 
     // Create two new functions passing our scales in as arguments
@@ -100,32 +105,25 @@ d3.json("/raw-web-api", function (myData) {
         .attr("transform", `translate(0, ${height})`)
         .call(bottomAxis);
 
-
-
-
-    //////////////////////
-
-
     var barSpacing = 10; // desired space between each bar
     var scaleY = 10; // 10x scale on rect height
   
     // Create a 'barWidth' variable so that the bar chart spans the entire chartWidth.
     var barWidth = (width - (barSpacing * (true_array.length - 1))) / true_array.length;
   
-    // @TODO
-    // // Create code to build the bar chart using the tvData.
-    // chartGroup.selectAll(".bar")
-    //   .data(true_array)
-    //   .enter()
-    //   .append("rect")
-    //   .classed("bar", true)
-    //   .attr("width", d => barWidth)
-    //   .attr("height", d => d.value * scaleY)
-    //   .attr("x", (d, i) => i * (barWidth + barSpacing))
-    //   .attr("y", d => height - d.value * scaleY);
+    // GRID
+    
+    // chartGroup.append('g')
+    //     .attr('class', 'grid')
+    //     .call(d3.axisLeft()
+    //         .scale(yLinearScale)
+    //         .tickSize(-width, 0, 0)
+    //         .tickFormat(''))
 
-        // Create one SVG rectangle per piece of tvData
-    // Use the linear and band scales to position each rectangle within the chart
+
+
+    //APPENDING BARS
+
     chartGroup.selectAll(".bar")
     .data(true_array)
     .enter()
@@ -134,10 +132,40 @@ d3.json("/raw-web-api", function (myData) {
     .attr("x", d => xBandScale(d.key))
     .attr("y", d => yLinearScale(d.value))
     .attr("width", xBandScale.bandwidth())
-    .attr("height", d => height - yLinearScale(d.value));
+    .attr("height", d => height - yLinearScale(d.value))
+
+    chartGroup.selectAll("bar")
+        .data(true_array)
+        .enter()
+        .append("text")
+        .text(function(d){
+            return d.value;
+        })
+        .attr("text-anchor", "middle")
+        //This adds the numbers
+        .attr("x", function(d, i) {
+            return i * (width / true_array.length) + (width / true_array.length) / 2;
+        })
+        //Code breaks here.. y attribute NAN
+        .attr("y", function(d) {
+            return h - (d * 4) + 14;
+       })
 
 
-
-
-
+    // //Adding text to bars
+    // chartGroup.selectAll("null")
+    //     .data(true_dict)
+    //     .enter()
+    //     .append("text")
+    //     .text(function(d) { return d; })
+    //     .attr("x", function(d,i){
+    //     return xBandScale(i) + xBandScale.bandwidth() / 2;
+    //     })
+    //     .attr("y", function(d){
+    //     return height - yLinearScale(d) + 14 ;
+    //     })
+    //     .attr("font-family" , "sans-serif")
+    //     .attr("font-size" , "11px")
+    //     .attr("fill" , "red")
+    //     .attr("text-anchor", "middle");
     })
