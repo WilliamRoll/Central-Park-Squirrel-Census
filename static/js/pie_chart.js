@@ -1,6 +1,6 @@
 // area dimensions
 
-// second barchart??
+// pie chart??
 
 var svgWidth = 600;
 var svgHeight = 400;
@@ -17,7 +17,8 @@ var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
 // svg wrapper
-// IMP need to HTML div id = "second_barchart"
+// IMP need to add HTML div id = "pie_chart"
+
 var svg = d3
     .select("#second_barchart")
     .append("svg")
