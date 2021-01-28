@@ -123,7 +123,7 @@ d3.json("/raw-web-api", function (myData) {
 
     //APPENDING BARS
 
-    chartGroup.selectAll(".bar")
+    var testGroup = chartGroup.selectAll(".bar")
     .data(true_array)
     .enter()
     .append("rect")
@@ -133,22 +133,24 @@ d3.json("/raw-web-api", function (myData) {
     .attr("width", xBandScale.bandwidth())
     .attr("height", d => height - yLinearScale(d.value))
 
-    chartGroup.selectAll("bar")
-        .data(true_array)
-        .enter()
-        .append("text")
-        .text(function(d){
-            return d.value;
-        })
-        .attr("text-anchor", "middle")
-        //This adds the numbers
-        .attr("x", function(d, i) {
-            return i * (width / true_array.length) + (width / true_array.length) / 2;
-        })
-        //Code breaks here.. y attribute NAN
-        .attr("y", function(d) {
-            return height - (d.value * 4) + 14;
-       })
+    // Step 1: Append tooltip div
+    var toolTip = d3.select("body")
+      .append("div")
+      .classed("tooltip", true);
+
+    // Step 2: Create "mouseover" event listener to display tooltip
+    testGroup.on("mouseover", function(d) {
+      toolTip.style("display", "block")
+          .html(
+            `<strong>${d.key}<strong><hr>${d.value}`)
+          .style("left", d3.event.pageX + "px")
+          .style("top", d3.event.pageY + "px");
+    })
+      // Step 3: Create "mouseout" event listener to hide tooltip
+      .on("mouseout", function() {
+        toolTip.style("display", "none");
+      });
+
 
     // //Adding text to bars
     // chartGroup.selectAll("null")
