@@ -88,4 +88,20 @@ body{
 
 }
 
+.bar {
+    fill: yellow;
+  }
+  
+  /* .bar:hover {
+    fill: green;
+  }
+   */
+
+.tooltip{
+    width: 100px;
+    height: 100px;
+    background: white;
+    opacity: 1;
+
+}
 
