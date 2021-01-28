@@ -1,5 +1,6 @@
 // Bar Chart
 
+
 var svgWidth = 600;
 var svgHeight = 500;
 
