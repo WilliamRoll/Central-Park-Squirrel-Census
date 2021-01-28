@@ -1,59 +1,93 @@
 /* Your stylesheet */
+/* added squirrel background image */
+/* navbar */
 
-/* color of latitude button */
 .navbar-brand
 {
-    background-color:#006600;
-    padding: 5pt;
-    color: white;
+   
+    padding: 4pt;
+    color:  #1BA098;
 }
 
-/* text of latitude button */
+/* navbar button */
 .navbar-light .navbar-brand {
-    color:white;
+    color: #1BA098;
     font-weight:bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 27px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
 
-/* hover feature */
 
 .nav-item > a:hover {
-    background-color: lightgray
+    background-color:#f5b978;
+    color: #087971;
+    
+
 }
 
 .dropdown-menu > a:hover {
-    background-color: lightgray
+    background-color:#f5b978;
+    color: #087971;
+    
 }
 
-/* headings */
+
 
 h1 {
-  font-size: 25px;
-  color: #00cc66;
+  text-align: center;
+  font-size: 35px;
   font-weight: bold;
+
   font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #087971;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #087971;
+
 }
 
 h4 {
-  color: #00cc66;
+  text-align: center;
+  color: #087971;
   text-align: center;
   font-weight: bold;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-/* container */
-.container{
 
+.container{
+    text-align: center;
+    color: #087971;
+    font-weight: bold;
+    font-size: 20px;
     position: relative;
     padding:50pt;
     top: 55pt;
-    background-color:white;
+    background-color:#f5b978;
+
 
 }
 
-/* background color */
+/* background image ; */
 body{
-    background-color:lightgray;
+   
+    background-image: url("../images/squirrel_homepage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color:#f5b978;
+    background-attachment:fixed;
+    height:100%;
+    margin: 0;
+    overflow: auto;
+    
+/* can also use overflow:hidden to hide */
+  
+
 }
+/* background-position : center center; */
 
