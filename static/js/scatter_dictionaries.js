@@ -52,7 +52,6 @@ d3.json("/raw-web-api", function (myData) {
     for (var index = 0; index < data.length; index++){
         var approach = data[index].approaches;
         var primary_color = data[index].primary_fur_color;
-        console.log(primary_color)
         
         if(approach=="True" && primary_color=="Gray"){
             gray_approach_count+=1
@@ -148,9 +147,8 @@ d3.json("/raw-web-api", function (myData) {
         })
         //Code breaks here.. y attribute NAN
         .attr("y", function(d) {
-            return h - (d * 4) + 14;
+            return height - (d.value * 4) + 14;
        })
-
 
     // //Adding text to bars
     // chartGroup.selectAll("null")
