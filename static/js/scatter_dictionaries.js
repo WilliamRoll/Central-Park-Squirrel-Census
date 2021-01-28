@@ -21,6 +21,7 @@ var svg = d3
     .attr("width", svgWidth)
     .attr("height", svgHeight)
 
+
 //append
 var chartGroup = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
@@ -73,6 +74,33 @@ d3.json("/raw-web-api", function (myData) {
     }));
     
     console.log(true_array)
+
+
+    ///pasting old code/////////////////
+    
+    var barSpacing = 10; // desired space between each bar
+    var scaleY = 10; // 10x scale on rect height
+  
+    // Create a 'barWidth' variable so that the bar chart spans the entire chartWidth.
+    var barWidth = (width - (barSpacing * (true_array.length - 1))) / true_array.length;
+  
+    // @TODO
+    // Create code to build the bar chart using the tvData.
+    chartGroup.selectAll(".bar")
+      .data(true_array)
+      .enter()
+      .append("rect")
+      .classed("bar", true)
+      .attr("width", d => barWidth)
+      .attr("height", d => d.value * scaleY)
+      .attr("x", (d, i) => i * (barWidth + barSpacing))
+      .attr("y", d => height - d.value * scaleY);
+
+
+
+
+    ///////////////////////////////////
+
 
 
     });
