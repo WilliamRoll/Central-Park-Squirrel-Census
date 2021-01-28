@@ -1,16 +1,16 @@
 // area dimensions
 
-// pie chart??
+// need to update pie chart....
 
-var svgWidth = 600;
+var svgWidth = 500;
 var svgHeight = 400;
 
 //margin for charts are here 
 var margin = {
-    top: 20,
-    right: 20,
-    bottom: 20,
-    left: 20
+    top: 25,
+    right: 25,
+    bottom: 25,
+    left: 25
 };
 
 var width = svgWidth - margin.left - margin.right;
@@ -20,7 +20,7 @@ var height = svgHeight - margin.top - margin.bottom;
 // IMP need to add HTML div id = "pie_chart"
 
 var svg = d3
-    .select("#second_barchart")
+    .select("#pie_chart")
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight)
@@ -34,7 +34,7 @@ d3.json("/raw-web-api", function (behaviorData) {
     
     console.log(behaviorData); 
 
-// BAR CHART variables:  Primary Fur color and Indifferent
+// CHART variables:  Primary Fur color and Indifferent
 // indifferent behavior - true or false?
 
     //var 
@@ -68,13 +68,13 @@ d3.json("/raw-web-api", function (behaviorData) {
     console.log(my_arr)
 
 
-// Xbandscale--- horizontal axis
+// X
     var xBandScale = d3.scaleBand()
         .domain(my_arr.map(d => d.key))
         .range([0, width])
         .padding(0.2);
 
-// Ylinearscale --- vertical axis
+// Yl
     var yLinearScale = d3.scaleLinear()
         .domain([0, d3.max(my_arr, d => d.value)])
         .range([height, 0]);
@@ -92,7 +92,7 @@ d3.json("/raw-web-api", function (behaviorData) {
     chartGroup.append("g")
         .call(lAxis);
 
-  // making the svg rectangle w/ the scales
+  // m
     chartGroup.selectAll(".bar")
         .data(my_arr)
         .enter()
