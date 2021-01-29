@@ -7,7 +7,7 @@
 // switched from d3 to plotly
 
 // color - brown and gray
-var color = ["#CD853F","#A9A9A9"];
+var color = ['rgb(210,105,30)','rgb (127,127,127)'];
   
 d3.json("/raw-web-api", function (behaviorData) { 
     
