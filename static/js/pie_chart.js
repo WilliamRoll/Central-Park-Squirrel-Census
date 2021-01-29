@@ -1,8 +1,9 @@
-// area dimensions
+// Pie Chart : 
 
-// area dimensions
+//variables:  Primary Fur color : gray and cinnamon and Indifferent
+// indifferent behavior - true or false?
 
-// need to update pie chart....
+// need to update pie chart... fig size, font size, pulling
 // switched from d3 to plotly
 
 // color - brown and gray
@@ -12,8 +13,6 @@ d3.json("/raw-web-api", function (behaviorData) {
     
   console.log(behaviorData); 
 
-// variables:  Primary Fur color : gray and cinnamon and Indifferent
-// indifferent behavior - true or false?
 // counts
   var gray_count=0
   var cinnamon_count=0
@@ -50,6 +49,7 @@ d3.json("/raw-web-api", function (behaviorData) {
     width: 500
   };
   
+  // 
   Plotly.newPlot('pie_chart', data, layout);
 
 });
