@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Citi Bike</title>
+  <title>Squirrel Behaviour</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
@@ -16,11 +16,77 @@
   <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="static/css/leaflet.extra-markers.min.css">
 
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+   <!-- Boostrap Stylesheet -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+   integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+ <!-- Our own CSS stylesheet -->
+ <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
+<!-- Nav Bar-->
+
+    <!--Latitude Button -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">"Squirrel Squad"-Central Park Squirrels</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!--Plots Button-->
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+
+          <!--Process Button-->
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="process.html">The Process</a>
+          </li>
+
+        <!--Plots Button-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Plots
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="scatter.html">Scatter Plot</a>
+              <a class="dropdown-item" href="pie.html">Pie Chart</a>
+            </div>
+          </li>
+
+
+      <!--Heatmap Button-->
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="heatmap.html">Heatmap</a>
+          </li>
+         
+      <!--Heatmap Button-->
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="leaflet.html">Squirrel Behaviour</a>
+          </li>
+     
+              
+      <!--Data Button-->
+
+          <li class="nav-item">
+
+            <!--changed for test-->
+            <a class="nav-link" href="raw-web-api.html">Mongo DB-Data</a>
+          </li>
+        </ul>
+
+      
+      </div>
+    </nav>
+
 
   <!-- The div that holds our map -->
   <div id="map-id"></div>

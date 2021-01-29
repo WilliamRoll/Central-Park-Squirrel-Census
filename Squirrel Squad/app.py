@@ -25,18 +25,6 @@ def scatter_plot():
 @app.route("/raw-web-api.html")
 def data_api():
     return render_template("raw-web-api.html")
-    
-@app.route("/process.html")
-def process_img():
-    return render_template("process.html")
-
-@app.route("/leaflet.html")
-def leaflet():
-    return render_template("leaflet.html")
-
-@app.route("/raw-web-api.html")
-def data_api():
-    return render_template("raw-web-api.html")
 
 #route that will return Web API JSON data
 @app.route("/raw-web-api")

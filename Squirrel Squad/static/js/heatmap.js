@@ -25,17 +25,12 @@ d3.json("/raw-web-api", function (mydata) {
     var location = data[i].geocoded_column;
     var color = data[i].primary_fur_color;
     var chasing = data[i].chasing;
-    // if (chasing == True){
-    //   behaviourArray.push([location.coordinates[1], location.coordinates[0]]);
-    // }
+  
     if (location) {
       locationArray.push([location.coordinates[1], location.coordinates[0]]);
-      // L.marker([location.coordinates[1], location.coordinates[0]]).addTo(myMap);
+     
     }
-    // if (color) {
-    //   colorArray.push(color);
-    // }
-
+ 
   }
   var heat = L.heatLayer(locationArray, {
     radius: 20,
@@ -43,14 +38,6 @@ d3.json("/raw-web-api", function (mydata) {
   }).addTo(myMap);
 
   console.log(locationArray);
-  console.log(colorArray);
-  // var data = [
-  //   {z: locationArray,
-  //     x: colorArray,
-  //     y: ['Morning', 'Afternoon', 'Evening'],
-  //     type: 'heatmap'
-  //   }
-  // ];
-  
-  // Plotly.newPlot('map', data);
+ 
+ 
 });
