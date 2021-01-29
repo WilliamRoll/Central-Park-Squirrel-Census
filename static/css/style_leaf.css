@@ -5,6 +5,105 @@ body,
   padding: 0;
   margin: 0;
 }
+#map {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.navbar-brand
+{
+   
+    padding: 4pt;
+    color:  #1BA098;
+}
+
+
+.navbar-light .navbar-brand {
+    color: #1BA098;
+    font-weight:bold;
+    font-size: 27px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+
+.nav-item > a:hover {
+    background-color:#f5b978;
+    color: #087971;
+    
+
+}
+
+.dropdown-menu > a:hover {
+    background-color:#f5b978;
+    color: #087971;
+    
+}
+
+
+
+h1 {
+
+text-shadow: 3px 3px 5px #0da79c;
+  font-size: 35px;
+  font-weight: bold;
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #087971;
+}
+
+h2 {
+    
+    font-size: 30px;
+    font-weight: bold;
+    color: #087971;
+
+}
+
+h4 {
+  
+  color: #087971;
+  text-align: center;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.container{
+   
+    color: #087971;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    padding:50pt;
+    top: 55pt;
+    background-color:#f5b978;
+
+
+}
+
+
+body{
+   
+    background-image: url("../images/squirrel_homepage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color:#f5b978;
+    background-attachment:fixed;
+    height:100%;
+    margin: 0;
+    overflow: auto;
+    
+
+  
+
+}
+
+
+
 
 .legend {
   padding: 10px;

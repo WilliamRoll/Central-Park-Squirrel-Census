@@ -35,17 +35,11 @@ d3.json("/raw-web-api", function (mydata) {
   var heat = L.heatLayer(locationArray, {
     radius: 20,
     blur: 35
-  }).addTo(myMap);
+  });
+
+  myMap.addLayer(heat);
 
   console.log(locationArray);
  
-  // var data = [
-  //   {z: locationArray,
-  //     x: colorArray,
-  //     y: ['Morning', 'Afternoon', 'Evening'],
-  //     type: 'heatmap'
-  //   }
-  // ];
   
-  // Plotly.newPlot('map', data);
 });
