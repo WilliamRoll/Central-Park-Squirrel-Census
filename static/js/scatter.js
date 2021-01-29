@@ -163,7 +163,7 @@ d3.json("/raw-web-api", function (myData) {
         svg2
         .attr("width", "100%")
         .attr("height", "100%")
-        .attr("viewBox", "0 0 740 800");
+        .attr("viewBox", "0 0 740 500");
 
 
     })
@@ -326,5 +326,5 @@ d3.json("/raw-web-api", function (myData) {
         svg
         .attr("width", "100%")
         .attr("height", "100%")
-        .attr("viewBox", "0 0 740 800");
+        .attr("viewBox", "0 0 740 500");
     })
