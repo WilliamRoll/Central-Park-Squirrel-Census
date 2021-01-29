@@ -10,17 +10,29 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/html-templating")
-def html_templating():
-    return render_template("html-templating.html")
+@app.route("/index.html")
+def homepage():
+    return render_template("index.html")
+
+@app.route("/pie.html")
+def pie_plot():
+    return render_template("pie.html")
 
 @app.route("/heatmap.html")
 def heat_mapping():
     return render_template("heatmap.html")
 
-@app.route("/scatter.html")
-def scatter_plot():
-    return render_template("scatter.html")
+@app.route("/bar.html")
+def bar_plot():
+    return render_template("bar.html")
+
+@app.route("/process.html")
+def process_page():
+    return render_template("process.html")
+
+@app.route("/leaftlet.html")
+def marker_plot():
+    return render_template("leaflet.html")
 
 @app.route("/raw-web-api.html")
 def data_api():
