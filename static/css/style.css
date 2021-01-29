@@ -55,6 +55,10 @@ body{
     overflow: auto;
 }
 
+.bar {
+    fill: yellow;
+  }
+
 .tooltip{
     width: 100px;
     height: 90px;
