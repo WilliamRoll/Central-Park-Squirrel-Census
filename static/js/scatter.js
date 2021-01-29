@@ -16,7 +16,7 @@ var width2 = svgWidth2 - margin2.left - margin2.right;
 var height2 = svgHeight2 - margin2.top - margin2.bottom;
 
 // svg wrapper
-var svg = d3
+var svg2 = d3
     .select("#color_barchart")
     .append("svg")
     .attr("width", svgWidth2)
@@ -24,7 +24,7 @@ var svg = d3
     
 
 //append
-var chartGroup2 = svg.append("g")
+var chartGroup2 = svg2.append("g")
     .attr("transform", `translate(${margin2.left}, ${margin2.top})`);
 
 //Load data from API
@@ -159,22 +159,13 @@ d3.json("/raw-web-api", function (myData) {
         .attr('text-anchor', 'middle')
         .text('Squirrel Color and Approaches')
 
-    // //Adding text to bars
-    // chartGroup.selectAll("null")
-    //     .data(true_dict)
-    //     .enter()
-    //     .append("text")
-    //     .text(function(d) { return d; })
-    //     .attr("x", function(d,i){
-    //     return xBandScale(i) + xBandScale.bandwidth() / 2;
-    //     })
-    //     .attr("y", function(d){
-    //     return height - yLinearScale(d) + 14 ;
-    //     })
-    //     .attr("font-family" , "sans-serif")
-    //     .attr("font-size" , "11px")
-    //     .attr("fill" , "red")
-    //     .attr("text-anchor", "middle");
+    //making charts responsive
+        svg2
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("viewBox", "0 0 740 800");
+
+
     })
 
 
@@ -281,15 +272,6 @@ d3.json("/raw-web-api", function (myData) {
     // Create a 'barWidth' variable so that the bar chart spans the entire chartWidth.
     var barWidth = (width - (barSpacing * (indifferent_array.length - 1))) / indifferent_array.length;
   
-    // GRID
-    
-    // chartGroup.append('g')
-    //     .attr('class', 'grid')
-    //     .call(d3.axisLeft()
-    //         .scale(yLinearScale)
-    //         .tickSize(-width, 0, 0)
-    //         .tickFormat(''))
-
 
     //APPENDING BARS
 
@@ -339,4 +321,10 @@ d3.json("/raw-web-api", function (myData) {
         .attr('y', -25)
         .attr('text-anchor', 'middle')
         .text('Squirrel Color and Indifference')
+
+        //making charts responsive
+        svg
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("viewBox", "0 0 740 800");
     })
