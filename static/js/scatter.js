@@ -1,23 +1,24 @@
 // area dimensions
 
-// second barchart??
+// second barchart for indifferent and 
+// behavior barchart
 
 var svgWidth = 600;
 var svgHeight = 400;
 
 //margin for charts are here 
 var margin = {
-    top: 20,
-    right: 20,
-    bottom: 20,
-    left: 20
+    top: 25,
+    right: 25,
+    bottom: 25,
+    left: 25
 };
 
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
 // svg wrapper
-// IMP need to HTML div id = "second_barchart"
+// IMP need to add div id = "second_barchart" to html file
 var svg = d3
     .select("#second_barchart")
     .append("svg")
@@ -35,6 +36,8 @@ d3.json("/raw-web-api", function (behaviorData) {
 
 // BAR CHART variables:  Primary Fur color and Indifferent
 // indifferent behavior - true or false?
+    // black count
+    // cinnamon
 
     //var 
     var black_count=0
@@ -54,8 +57,8 @@ d3.json("/raw-web-api", function (behaviorData) {
     }
 
     var my_dict = {
-        "Cinnamon": cinnamon_approach_count,
-        "Black": black_approach_count
+        "Cinnamon": cinnamon_count,
+        "Black": black_count
     };
     console.log(my_dict)
     
@@ -97,7 +100,7 @@ d3.json("/raw-web-api", function (behaviorData) {
         .enter()
         .append("rect")
         .attr("class", "bar")
-        .attr("fill", "blue")
+        .attr("fill", "pink")
         .attr("x", d => xBandScale(d.key))
         .attr("y", d => yLinearScale(d.value))
         .attr("width", xBandScale.bandwidth())
