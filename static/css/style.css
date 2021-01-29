@@ -54,3 +54,19 @@ body{
     margin: 0;
     overflow: auto;
 }
+
+.tooltip{
+    width: 100px;
+    height: 90px;
+    padding: 10px;
+    background: lightgray;
+    color: black;
+    font: 12px sans-serif;
+    text-align: center;
+    opacity: 1;
+    border: 1;
+    border-radius: 10px;
+    display: none;
+
+}
+
