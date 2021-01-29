@@ -6,9 +6,9 @@ var svgHeight2 = 500;
 
 //margin for charts are here 
 var margin2 = {
-    top: 30,
+    top: 60,
     right: 30,
-    bottom: 30,
+    bottom: 60,
     left: 60
 };
 
@@ -140,6 +140,24 @@ d3.json("/raw-web-api", function (myData) {
         toolTip2.style("display", "none");
       });
 
+      chartGroup2.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin2.left)
+      .attr("x", 0 - (height2/1.2))
+      .attr("dy", "1em")
+      .attr("class", "axisText")
+      .text("Number of Approaching Squirrels");
+
+        chartGroup2.append("text")
+        .attr("transform", `translate(${width2/3.3}, ${height2 + margin2.top-13})`)
+        .attr("class", "axisText")
+        .text("Primary Squirrel Color");
+
+        chartGroup2.append('text')
+        .attr('x', width2 / 2)
+        .attr('y', -25)
+        .attr('text-anchor', 'middle')
+        .text('Squirrel Color and Approaches')
 
     // //Adding text to bars
     // chartGroup.selectAll("null")
@@ -170,7 +188,7 @@ var svgHeight = 500;
 
 //margin for charts are here 
 var margin = {
-    top: 30,
+    top: 60,
     right: 30,
     bottom: 60,
     left: 60
@@ -312,7 +330,13 @@ d3.json("/raw-web-api", function (myData) {
       .text("Number of Indifferent Squirrels");
 
         chartGroup.append("text")
-        .attr("transform", `translate(${width/3.3}, ${height + margin.top+13})`)
+        .attr("transform", `translate(${width/3.3}, ${height + margin.top-13})`)
         .attr("class", "axisText")
         .text("Primary Squirrel Color");
+
+        chartGroup.append('text')
+        .attr('x', width / 2)
+        .attr('y', -25)
+        .attr('text-anchor', 'middle')
+        .text('Squirrel Color and Indifference')
     })
