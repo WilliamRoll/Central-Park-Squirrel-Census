@@ -5,8 +5,8 @@
 // need to update pie chart....
 // switched from d3 to plotly
 
-
-var color = ["#4daf4a","#377eb8"];
+// color - brown and gray
+var color = ["#CD853F","#A9A9A9"];
   
 d3.json("/raw-web-api", function (behaviorData) { 
     
@@ -14,7 +14,7 @@ d3.json("/raw-web-api", function (behaviorData) {
 
 // variables:  Primary Fur color : gray and cinnamon and Indifferent
 // indifferent behavior - true or false?
-
+// counts
   var gray_count=0
   var cinnamon_count=0
 
@@ -31,14 +31,14 @@ d3.json("/raw-web-api", function (behaviorData) {
           }
   }
 //}
-
+// diction
   var my_dict = {
     "Cinnamon": cinnamon_count,
     "Gray": gray_count
   };
   console.log(my_dict)
  
-// data
+// my data
   var data = [{
     values: [cinnamon_count, gray_count],
     labels: ['Cinnamon', 'Gray'],
