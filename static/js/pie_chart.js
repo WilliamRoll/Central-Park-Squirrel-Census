@@ -45,8 +45,8 @@ d3.json("/raw-web-api", function (behaviorData) {
   }];
   // layout
   var layout = {
-    height: 400,
-    width: 500
+    height: 500,
+    width: 600
   };
   
   // 
