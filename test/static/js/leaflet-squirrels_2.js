@@ -20,8 +20,8 @@ var layers = {
 
 // Create the map with our layers
 var map = L.map("map-id", {
-    center: [40.79, -73.96],
-    zoom: 16,
+    center: [40.785091, -73.968285],
+    zoom: 14.5,
     layers: [
       layers.SQUIRREL_APPROACH,
       layers.SQUIRREL_CHASE,
@@ -65,40 +65,40 @@ info.addTo(map);
 // Initialize an object containing icons for each layer group
 var icons = {
   SQUIRREL_APPROACH: L.ExtraMarkers.icon({
-    icon: "ion-settings",
-    iconColor: "yellow",
-    markerColor: "yellow",
-    shape: "star"
+    icon: "ion-ios-search",
+    iconColor: "cyan",
+    markerColor: "cyan",
+    shape: "square"
   }),
   SQUIRREL_CHASE: L.ExtraMarkers.icon({
-    icon: "ion-android-bicycle",
+    icon: "ion-android-open",
     iconColor: "red",
     markerColor: "red",
-    shape: "circle"
+    shape: "square"
   }),
   SQUIRREL_CLIMBING: L.ExtraMarkers.icon({
-    icon: "ion-minus-circled",
+    icon: "ion-leaf",
     iconColor: "blue",
     markerColor: "blue-dark",
-    shape: "penta"
+    shape: "square"
   }),
   SQUIRREL_EATING: L.ExtraMarkers.icon({
-    icon: "ion-android-bicycle",
-    iconColor: "orange",
-    markerColor: "orange",
-    shape: "circle"
-  }),
-  SQUIRREL_RUNNING: L.ExtraMarkers.icon({
-    icon: "ion-android-bicycle",
+    icon: "ion-android-restaurant",
     iconColor: "green",
     markerColor: "green",
-    shape: "circle"
+    shape: "square"
+  }),
+  SQUIRREL_RUNNING: L.ExtraMarkers.icon({
+    icon: "ion-ios-paw",
+    iconColor: "orange",
+    markerColor: "orange",
+    shape: "square"
   }),
   SQUIRREL_OTHER: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
+      icon: "ion-aperture",
       iconColor: "purple",
       markerColor: "purple",
-      shape: "circle"
+      shape: "square"
   }),
 };
 
@@ -109,133 +109,46 @@ d3.json("/raw-web-api", function (mydata) {
   response = mydata
   
   console.log(response)
-  // Initialize a stationStatusCode, which will be used as a key to access the appropriate layers, icons, and station count for layer group
+
+  // Initialize a squirrel status code that will allow us to access the layers and icons
   var squirrel_status;
   // Loop through the stations (they're the same size and have partially matching data)
   for (var i = 0; i < response.length; i++) {
   // Create a new station object with properties of both station objects
-    if (response[i].approaches == "True") {
-      squirrel_status = "SQUIRREL_APPROACH"; 
-    }
-    else if (response[i].chasing == "True") {
-      squirrel_status = "SQUIRREL_CHASE";
-    }
-    else if (response[i].climbing == "True") {
-      squirrel_status = "SQUIRREL_CLIMBING";
-    }
-    else if (response[i].eating == "True") {
-      squirrel_status = "SQUIRREL_EATING";
-    }
-    else if (response[i].running == "True") {
-      squirrel_status = "SQUIRREL_RUNNING";
-    }
-    else {
-      squirrel_status = "SQUIRREL_OTHER";
-    }
+      if (response[i].approaches == "True") {
+        squirrel_status = "SQUIRREL_APPROACH"; 
+      }
+      else if (response[i].chasing == "True") {
+        squirrel_status = "SQUIRREL_CHASE";
+      }
+      else if (response[i].climbing == "True") {
+        squirrel_status = "SQUIRREL_CLIMBING";
+      }
+      else if (response[i].eating == "True") {
+        squirrel_status = "SQUIRREL_EATING";
+      }
+      else if (response[i].running == "True") {
+        squirrel_status = "SQUIRREL_RUNNING";
+      }
+      else {
+        squirrel_status = "SQUIRREL_OTHER";
+      }
 
-    console.log(squirrel_status)
-    var location = response[i].geocoded_column;
-    
-    // Create a new marker with the appropriate icon and coordinates
-    var newMarker = L.marker([location.coordinates[1], location.coordinates[0]], {
-      icon: icons[squirrel_status]
-    });
+      console.log(squirrel_status)
+      var location = response[i].geocoded_column;
+      
+      // Create a new marker with the appropriate icon and coordinates
+      var newMarker = L.marker([location.coordinates[1], location.coordinates[0]], {
+        icon: icons[squirrel_status]
+      });
 
-    // // Add the new marker to the appropriate layer
-    newMarker.addTo(layers[squirrel_status]);
-    }
+      // // Add the new marker to the appropriate layer
+      newMarker.addTo(layers[squirrel_status]);
 
-    //   // Bind a popup to the marker that will  display on click. This will be rendered as HTML
-    //   newMarker.bindPopup(station.name + "<br> Capacity: " + station.capacity + "<br>" + station.num_bikes_available + " Bikes Available");
-    // }
+      // Bind a popup to the marker that will  display on click. This will be rendered as HTML
+      newMarker.bindPopup(squirrel_status);
+     }
 
-    // // Call the updateLegend function, which will... update the legend!
-    // updateLegend(updatedAt, stationCount);
 });
-
-
-// function createMap(squirrels) {
-  
-//     // Create a baseMaps object to hold the lightmap layer
-//     var baseMaps = {
-//       "Light Map": lightmap
-//     };
-  
-//     // Create an overlayMaps object to hold the bikeStations layer
-//     var overlayMaps = {
-//       "Squirrels Location": squirrels
-//     };
-  
-//     // Create the map object with options
-//     var map = L.map("map", {
-//       center: [40.79, -73.96],
-//       zoom: 16,
-//       layers: [lightmap, squirrels]
-//     });
-  
-//     // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
-//     L.control.layers(baseMaps, overlayMaps, {
-//       collapsed: false
-//     }).addTo(map);
-//   }
- 
-// d3.json("/raw-web-api", function (mydata) { 
-//     response = mydata
-//     console.log(response); 
-//     function createMarkers(response) {
-
-//         // Pull the "stations" property off of response.data
-//         var location = response.geocoded_column;
-    
-//         // Initialize an array to hold bike markers
-//         var locationArray = [];
-//         var colorArray = [];
-//         var ChasingArray = [];
-//         // Loop through the stations array
-//         for (var index = 0; index < response.length; index++) {
-//         var location = response[index].geocoded_column;
-//         var color = response[index].primary_fur_color;
-//         var chasing = response[index].chasing;
-//         var behaviour = fillColor(response[index]);
-//         // For each station, create a marker and bind a popup with the station's name
-//         var squirrelMarker = L.marker([location.coordinates[1], location.coordinates[0]])
-//             .bindPopup("<h3>" + color + "<h3><h3>Approaching " + behaviour + "</h3>");
-    
-//         // Add the marker to the bikeMarkers array
-//         locationArray.push(squirrelMarker);
-//         }
-    
-//         // Create a layer group made from the bike markers array, pass it into the createMap function
-//         createMap(L.layerGroup(locationArray));
-//     }
-//     createMarkers(response);
-//      // Setting up the legend
-//     //  var legend = L.control({ position: "bottomright" });
-//     //  legend.onAdd = function() {
-//     //    var div = L.DomUtil.create("div", "info legend");
-//     //    var limits = ["Approaches", "Chasing", "Climbing", "Eating", "Running", "Inactive"];
-//     //    var labelsColor = [];
-//     //    var labelsText = [];
-//     //    var colors = ["#7FFF00", "#dfedbe", "#eede9f", "#FF8C00", "	#FA8072", "#FF0000"]
-//     //    // Add min & maxfil
-//     //    limits.forEach(function(limit, index) {
-//     //      labelsColor.push(`<li style="background-color: ${colors[index]};"></li>`); // <span class="legend-label">${limits[index]}</span>
-//     //      labelsText.push(`<span class="legend-label">${limits[index]}</span>`)
-//     //    });
- 
-//     //    var labelsColorHtml =  "<ul>" + labelsColor.join("") + "</ul>";
-//     //    var labelsTextHtml = `<div id="labels-text">${labelsText.join("<br>")}</div>`;
- 
-//     //    var legendInfo = "<h4>Squirrel<br>Behaviour</h4>" +
-//     //      "<div class=\"labels\">" + labelsColorHtml + labelsTextHtml
-//     //      "</div>";
-//     //    div.innerHTML = legendInfo;
- 
-//     //    return div;
-//     //  };
- 
-//     //  // Adding legend to the map
-//     //  legend.addTo(map);
-// });
 
 

@@ -83,7 +83,7 @@ var icons = {
       shape: "penta"
     }),
     SQUIRREL_EATING: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
+      icon: "restaurant",
       iconColor: "orange",
       markerColor: "orange",
       shape: "circle"
