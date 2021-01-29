@@ -24,109 +24,118 @@
 </head>
 
 <body>
-
     <!-- Nav Bar-->
-
     <!--Latitude Button -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">Central Park Squirrels</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!--Plots Button-->
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Plots
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="scatter.html">Scatter</a>
-            </div>
-          </li>
-
-
-      <!--Heatmap Button-->
-
-
-          <li class="nav-item">
-            <a class="nav-link" href="heatmap.html">Heatmap</a>
-          </li>
-         
-      <!--Data Button-->
-
-          <li class="nav-item">
-            <a class="nav-link" href="data.html">Data</a>
-          </li>
-        </ul>
-
+        <a class="navbar-brand" href="index.html">Central Park Squirrels</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+  
+        <!--Plots Button-->
       
-      </div>
-    </nav>
-
-    <!--Page Info-->
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-12 p-3">
-          <h1>Bar Graphs</h1>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+  
+            <!--Process Button-->
+  
+  
+            <li class="nav-item">
+              <a class="nav-link" href="process.html">The Process</a>
+            </li>
+  
+          <!--Plots Button-->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Plots
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="bar.html">Bar Chart</a>
+                <a class="dropdown-item" href="pie.html">Pie Chart</a>
+              </div>
+            </li>
+  
+  
+        <!--Heatmap Button-->
+  
+  
+            <li class="nav-item">
+              <a class="nav-link" href="heatmap.html">Heatmap</a>
+            </li>
+           
+        <!--Heatmap Button-->
+  
+  
+            <li class="nav-item">
+              <a class="nav-link" href="leaflet.html">Squirrel Behaviour</a>
+            </li>
+       
+                
+        <!--Data Button-->
+  
+            <li class="nav-item">
+  
+              <!--changed for test-->
+              <a class="nav-link" href="raw-web-api.html">Mongo DB-Data</a>
+            </li>
+          </ul>
+  
+        
         </div>
-      </div>
+      </nav>
 
-      <!-- "CHART" -->
 
+    <!-- Containers -->
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-6">
+              <div id="color_barchart">
+                <div class="article">
+                  <h2>Primary Fur Color and Approaching</h2>
+                  <hr>
+                  <p>We totaled up the approach (=true) counts for the three squirrel fur colors (=gray, cinnamon, or black). 
+                    Approach values were true/false. They were assigned on the basis of whether or not a squirrel approached
+                    a human for food.
+                  </p>
+                  <br>
+ 
       
-      <div class="row">
-        <div class="col-xs-12  col-md-9">
-          <div id="color_barchart">
-            <!-- We append our chart here. -->
+                </div>
+              </div>
+              <br>
+              <br>
+              <h3>Analysis:</h3>
+              <p>In order to quantify the approaches, we applied a conditional statement and summed up the true and false counts.
+                After finding that only 127 squirrels approached humans for food, we decided to identify the squirrel color that approached most frequently.
+                Gray squirrels approached humans the most. The gray squirrel approach count was at 89, cinnamon at 33, and black at 5.</p>
+
+              
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12  col-md-9">
-          <div class="article">
-  
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12  col-md-9">
-          <div class="article">
-            <h2>Correlations Discovered Between Fur Color and Chasing</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-              quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-              ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <div class="col-lg-6">
+              <div id="color_barchart1">
+                <div class="article">
+                  <h2>Primary Fur Color and Indifference</h2>
+                  <hr>
+                  <p> We summed up the indifferent (=true) counts for the squirrel fur colors. Indifferent values were binary. The indifferent value classification was based on whether or not the
+                    squirrel under consideration was indifferent to human presence or not.
+                  </p>
+      
+                </div>
+
+              </div>
+              <br>
+              <br>
+              <br>
+              <h3>Analysis: </h3>
+                <p>To sum up the indifferent binary values, we created a counter in order to total the number of indifferent=true values. We applied a conditional statement (with a fur color parameter) to do this.
+                The gray squirrel had the most number of indifferent counts, at 872. Cinnamon counts were at 121, and black at 27.
+              </p>
 
           </div>
-<!-- Second graph -->
-        <div class="row">
-          <div class="col-xs-12  col-md-9">
-            <div id="color_barchart1">
-              <!-- We append our chart here. -->
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12  col-md-9">
-            <div class="article">
-    
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12  col-md-9">
-            <div class="article">
-              <h2>Correlations Discovered Between Fur Color and Chasing</h2>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-                quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-                ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-  
-            </div>
-    
-  
+      </div>
+  </div>
+ 
 
   <!-- Javascript -->git
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
