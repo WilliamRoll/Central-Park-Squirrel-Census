@@ -9,7 +9,7 @@ var margin2 = {
     top: 30,
     right: 30,
     bottom: 30,
-    left: 30
+    left: 60
 };
 
 var width2 = svgWidth2 - margin2.left - margin2.right;
@@ -172,8 +172,8 @@ var svgHeight = 500;
 var margin = {
     top: 30,
     right: 30,
-    bottom: 30,
-    left: 30
+    bottom: 60,
+    left: 60
 };
 
 var width = svgWidth - margin.left - margin.right;
@@ -185,19 +185,7 @@ var svg = d3
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight)
-    
-    ///////////////////////////////////////////////////////////
-    //ATTEMPT TO MAKE RESPONSIVE
-    .attr('preserveAspectRatio', 'xMinYMin meet')
-    .attr(
-      'viewBox',
-      '0 0 ' +
-        (width + margin.left + margin.right) +
-        ' ' +
-        (height + margin.top + margin.bottom)
-    )
 
-    ///////////////////////////////////////////////////////////
 
 //append
 var chartGroup = svg.append("g")
@@ -285,7 +273,6 @@ d3.json("/raw-web-api", function (myData) {
     //         .tickFormat(''))
 
 
-
     //APPENDING BARS
 
     var testGroup = chartGroup.selectAll(".bar")
@@ -298,12 +285,12 @@ d3.json("/raw-web-api", function (myData) {
     .attr("width", xBandScale.bandwidth())
     .attr("height", d => height - yLinearScale(d.value))
 
-    // Step 1: Append tooltip div
+    // Append tooltip div
     var toolTip = d3.select("body")
       .append("div")
       .classed("tooltip", true);
 
-    // Step 2: Create "mouseover" event listener to display tooltip
+    // Create "mouseover" event listener to display tooltip
     testGroup.on("mouseover", function(d) {
       toolTip.style("display", "block")
           .html(
@@ -311,26 +298,21 @@ d3.json("/raw-web-api", function (myData) {
           .style("left", d3.event.pageX + "px")
           .style("top", d3.event.pageY + "px");
     })
-      // Step 3: Create "mouseout" event listener to hide tooltip
+      //Create "mouseout" event listener to hide tooltip
       .on("mouseout", function() {
         toolTip.style("display", "none");
       });
 
+      chartGroup.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x", 0 - (height/1.2))
+      .attr("dy", "1em")
+      .attr("class", "axisText")
+      .text("Number of Indifferent Squirrels");
 
-    // //Adding text to bars
-    // chartGroup.selectAll("null")
-    //     .data(true_dict)
-    //     .enter()
-    //     .append("text")
-    //     .text(function(d) { return d; })
-    //     .attr("x", function(d,i){
-    //     return xBandScale(i) + xBandScale.bandwidth() / 2;
-    //     })
-    //     .attr("y", function(d){
-    //     return height - yLinearScale(d) + 14 ;
-    //     })
-    //     .attr("font-family" , "sans-serif")
-    //     .attr("font-size" , "11px")
-    //     .attr("fill" , "red")
-    //     .attr("text-anchor", "middle");
+        chartGroup.append("text")
+        .attr("transform", `translate(${width/3.3}, ${height + margin.top+13})`)
+        .attr("class", "axisText")
+        .text("Primary Squirrel Color");
     })
