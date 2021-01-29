@@ -3,7 +3,7 @@
 //variables:  Primary Fur color : gray and cinnamon and Indifferent
 // indifferent behavior - true or false?
 
-// need to update pie chart... fig size, font size, pulling
+// need to update pie chart... 
 // switched from d3 to plotly
 
 // color - brown and gray
@@ -46,7 +46,7 @@ d3.json("/raw-web-api", function (behaviorData) {
   // layout
   var layout = {
     height: 500,
-    width: 600
+    width: 900
   };
   
   // 
