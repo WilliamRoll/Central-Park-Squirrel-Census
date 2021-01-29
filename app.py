@@ -30,7 +30,7 @@ def bar_plot():
 def process_page():
     return render_template("process.html")
 
-@app.route("/leaftlet.html")
+@app.route("/leaflet.html")
 def marker_plot():
     return render_template("leaflet.html")
 
