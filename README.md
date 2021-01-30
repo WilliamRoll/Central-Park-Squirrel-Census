@@ -39,12 +39,6 @@ Summary of Goals
 * Plotting behavior of squirrels in visualizations such as scatterplot, heatmap etc. 
 
 Summary of Steps Taken
-----------------
-# ETL Process
-*Extract: Retrieve data from an outside source in the form of an API call.
-*Transform: Data cleaning through Jypter notebook to prepare data for official use and database importing.
-*Load: Bring final python dataset into MongoDB and further in python flask powered website.
-
 # Extracting Data
 * API Query Through https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
   * Assemble url query in string format and pull into Jupyter Notebook.
@@ -59,12 +53,11 @@ Summary of Steps Taken
 * MongoDB
   * Load dictionary data from converted API query so that each dictionary item would represent a single item within the Squirrel collection.
   * House dataset so that it can be easily accessed from external applications as well as preventing the need to create csv files to hold data between querying,                             cleaning, and presenting.
-
 * Flask
   * Provide a platfrom to host a website on and link the webpates together through routing.
   * Query data into application and route the data to an API within our application that can further manipulated through D3 javascript scripts on any html webpage found within the project. 
 
-### Creation of  Visualizations
+# Creation of  Visualizations
 * Bar Graphs:
   * The two bar graphs focused on primary fur color (gray, cinnamon, and black), approaches, and indifference. The "approach" variable value relied on whether or not a squirrel approached a human for food, while the "indifferent" variable was determined by whether or not a squirrel was indifferent to human presence.
   * Primary fur color was used in both bar graphs, while the values of approach/indifference were given a numerical value of 1. Using conditional statements, the totals for each fur color was determined.
