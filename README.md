@@ -65,11 +65,11 @@ Inspiration
 
 Visuals
 ----------------
-![alt text](https://github.com/[WilliamRoll]/[Project-2]/images/[main]/SquirrelApproach.png?raw=true)
-![alt text](https://github.com/[WilliamRoll]/[Project-2]/images/[main]/SquirrelIndifferent.png?raw=true)
-![alt text](https://github.com/[WilliamRoll]/[Project-2]/images/[main]/Pie.png?raw=true)
-![alt text](https://github.com/[WilliamRoll]/[Project-2]/images/[main]/Heatmap.png?raw=true)
-![alt text](https://github.com/[WilliamRoll]/[Project-2]/images/[main]/Markerplot.png?raw=true)
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelApproach.png)
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelIndifferent.png)
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Pie.png)
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Heatmap.png)
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Markerplot.png)
 
 Status
 ----------------
