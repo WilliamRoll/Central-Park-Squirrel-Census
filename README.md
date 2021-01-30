@@ -19,9 +19,8 @@ Are Squirrels Aggressive or Cute??
 ----------------
 ### Data Set
 https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
-
-### Supportive Article
 ----------------
+### Supportive Article
 https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-and-squirrels/
 ----------------
 # Summary of Goals
