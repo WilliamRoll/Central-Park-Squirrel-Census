@@ -1,33 +1,30 @@
 # Project-2
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/static/img/squirrel_homepage.jpg)
-Members
 ----------------
+Members:
 Rachel Chan,
 Zach Kopec,
 Sherin Mattappallil,
 Kinnari Patel,
 Bill Roll 
 
-# Project Proposal/Topic
 ----------------
- When we think of potential harm in New York City, we primarily think of other people and manmade objects. However, there is a variation of wildlife that also 
-resides there as well. Looking at Central Park, specifically, several species of mammals, birds, and reptiles that also call the city their home. The members in our 
-group are interested in one such mammal, the squirrel. Our project aims to take information gathered on the squirrels of Central Park and display the data 
-meaningfully to help keep natives, visitors, and the squirrels safe . Factors such as geological location, age, and behavior will all determine the outcomes of our
-visualizations as we look to inform the public with our data.
+# Project Proposal/Topic
 
-Are Squirrels Aggressive or Cute??
+When we think of potential harm in New York City, we primarily think of other people and manmade objects. However, there is a variation of wildlife that also resides there as well. Looking at Central Park, specifically, several species of mammals, birds, and reptiles that also call the city their home. The members in our group are interested in one such mammal, the squirrel. Our project aims to take information gathered on the squirrels of Central Park and display the data meaningfully to help keep natives, visitors, and the squirrels safe . Factors such as geological location, age, and behavior will all determine the outcomes of our visualizations as we look to inform the public with our data.
+
+----------------
 
 ### Data Set
-----------------
+
 https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
 
 ### Supportive Article
-----------------
+
 https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-and-squirrels/
 
-# Summary of Goals
 ----------------
+# Summary of Goals
 * Query data using API url.
 * Clean data in Jupyter notebook using pandas.
 * Pass dataframe into a dictionary and then insert dictionary items as documents into MongoDB.
@@ -62,25 +59,16 @@ https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-
 * Bar Graphs:
   * The two bar graphs focused on primary fur color (gray, cinnamon, and black), approaches, and indifference. The "approach" variable value relied on whether or not a squirrel approached a human for food, while the "indifferent" variable was determined by whether or not a squirrel was indifferent to human presence.
   * Primary fur color was used in both bar graphs, while the values of approach/indifference were given a numerical value of 1. Using conditional statements, the totals for each fur color was determined.
-* Pie Chart:
-  * The pie chart is a breakdown of the behaviour of squirrels in Central Park. The pie chart looks at the correlation between the behaviour of two kinds of squirrels colored gray and cinnamon. The goal of the pie chart is to analyze how the two fur colored squirrels show indifference to the residents in Central Park. Lastly, Plotly was used to create this pie chart. 
 * Heatmap:
   * The data set consists of geological locations of the squirrels. which was used to show the location of the squirrels.
   * It showed us there were a siginficant amount of squirrels. so you can look where they are and either avoid them or go look at them.	
 * Leaflet Squirrel Behavior Map:
   * This visualization displays the geographic location of squirrels based on the behaviors recorded within our dataset. Behaviors chosen were: Approaching, Chasing, Climbing, Eating, Running, and Other. 
   * Each of these behaviors is given a unique icon and color to identify them on the map. A pop up will also display if the point is clicked on and will identify the behavior the point represents. Each of the overlays can be selected/unselected in order to only show certain behaviors at a time. 
-
-### Inspiration
 ----------------
-
-
-### Visuals
-----------------
+# Visuals
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelApproach.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelIndifferent.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Pie.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Heatmap.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Markerplot.png)
-
-
