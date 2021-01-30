@@ -1,7 +1,7 @@
 # Project-2
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/static/img/squirrel_homepage.jpg)
 ----------------
-Members
+Members:
 Rachel Chan,
 Zach Kopec,
 Sherin Mattappallil,
@@ -64,13 +64,10 @@ https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-
 * Leaflet Squirrel Behavior Map:
   * This visualization displays the geographic location of squirrels based on the behaviors recorded within our dataset. Behaviors chosen were: Approaching, Chasing, Climbing, Eating, Running, and Other. 
   * Each of these behaviors is given a unique icon and color to identify them on the map. A pop up will also display if the point is clicked on and will identify the behavior the point represents. Each of the overlays can be selected/unselected in order to only show certain behaviors at a time. 
-
+----------------
 ### Inspiration
 ----------------
-
-
 ### Visuals
-----------------
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelApproach.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelIndifferent.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Pie.png)
