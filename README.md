@@ -1,4 +1,4 @@
-# Project-2
+# Central Park Squirrel Census
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/static/img/squirrel_homepage.jpg)
 ----------------
 Members:
