@@ -14,7 +14,6 @@ resides there as well. Looking at Central Park, specifically, several species of
 group are interested in one such mammal, the squirrel. Our project aims to take information gathered on the squirrels of Central Park and display the data 
 meaningfully to help keep natives, visitors, and the squirrels safe . Factors such as geological location, age, and behavior will all determine the outcomes of our
 visualizations as we look to inform the public with our data.
-
 Are Squirrels Aggressive or Cute??
 ----------------
 ### Data Set
@@ -65,9 +64,7 @@ https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-
   * This visualization displays the geographic location of squirrels based on the behaviors recorded within our dataset. Behaviors chosen were: Approaching, Chasing, Climbing, Eating, Running, and Other. 
   * Each of these behaviors is given a unique icon and color to identify them on the map. A pop up will also display if the point is clicked on and will identify the behavior the point represents. Each of the overlays can be selected/unselected in order to only show certain behaviors at a time. 
 ----------------
-### Inspiration
-----------------
-### Visuals
+# Visuals
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelApproach.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelIndifferent.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Pie.png)
