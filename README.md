@@ -51,7 +51,6 @@ https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squi
 *Extract: Our original data came from the API call 
 *Transform: Data cleaning or transformation was required in Jypter notebook.
 *Load: The final database was Mongo DB, tables/collections, and why this was chosen.
-* Loading Data
 ### MongoDB
 ### Flask
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/static/img/Flowchart.png)
