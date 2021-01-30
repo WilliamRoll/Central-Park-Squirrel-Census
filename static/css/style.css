@@ -1,0 +1,125 @@
+.navbar
+        {
+            border-bottom:5px solid #000000;
+        }
+  .navbar-brand
+        {
+            padding: 4pt;
+            color:  #1BA098;
+        }
+  .navbar-light .navbar-brand {
+      color: #006400;
+      font-weight:bold;
+      font-size: 27px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .nav-item > a:hover {
+      background-color:#006400;
+      color: white;
+  }
+  .dropdown-menu > a:hover {
+      background-color:#006400;
+      color: black;
+  }
+h1 {
+  /* text-shadow: 3px 3px 5px #0DA79C; */
+  font-size: 35px;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #087971;
+}
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    /* color: #640027; */
+}
+hr {
+
+	border-top: 2px dashed #640027;
+}
+h3{
+    font-size: 20px;
+}
+h4 {
+  color: #087971;
+  text-align: center;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.container{
+    color: #087971;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    padding:50pt;
+    top: 55pt;
+    background-color:lightgray;
+
+}
+
+
+#home{
+    opacity:1
+}
+body{
+    background-image: url("../img/squirrel_homepage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color:white;
+    background-attachment:fixed;
+    height:100%;
+    margin: 0;
+    overflow: auto;
+}
+
+.bar {
+    fill: #ffc512;
+  }
+  .bar:hover {
+    fill: #006400;
+  }
+
+.tooltip{
+    width: 100px;
+    height: 90px;
+    padding: 10px;
+    background:#280064;
+    color: white;
+    font: 12px sans-serif;
+    text-align: center;
+    opacity: 1;
+    border: 5;
+    border-radius: 10px;
+    display: none;
+
+}
+.container-fluid {
+    /* box-shadow: 0 5px 25px 0 rgba(255, 255, 255, 0.589);
+    color:#BEBEBE;
+    text-shadow: 3px 3px 10px #000000;
+    background: rgba(0, 0, 0, 0.315); */
+    /* background: white;
+   padding: 5pt */
+   padding: 30pt;
+   padding-left:40pt;
+   padding-right: 40pt;
+}
+
+.col-lg-6{
+    padding-top: 20pt;
+    padding-bottom: 20pt;
+    padding-left: 40pt;
+    padding-right: 30pt;
+    background: rgba(255, 255, 255, 0.801);
+    /* background-color: white; */
+
+}
+/* .row{
+
+    background-color:white,
+    padding: 100pt
+
+
+} */
+
+
