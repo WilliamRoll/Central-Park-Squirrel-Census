@@ -114,6 +114,23 @@ body{
     /* background-color: white; */
 
 }
+
+.col-lg-12{
+    padding-top: 20pt;
+    padding-bottom: 20pt;
+    padding-left: 40pt;
+    padding-right: 30pt;
+    background: rgba(255, 255, 255, 0.801);
+    /* background-color: white; */
+
+}
+
+.center-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
 /* .row{
 
     background-color:white,
