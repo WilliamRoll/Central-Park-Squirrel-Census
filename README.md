@@ -40,7 +40,7 @@ Summary of Goals
 
 Summary of Steps Taken
 ----------------
-### ETL Process
+# ETL Process
 *Extract: Retrieve data from an outside source in the form of an API call.
 *Transform: Data cleaning through Jypter notebook to prepare data for official use and database importing.
 *Load: Bring final python dataset into MongoDB and further in python flask powered website.
