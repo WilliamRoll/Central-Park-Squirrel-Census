@@ -8,7 +8,7 @@ Sherin Mattappallil,
 Kinnari Patel,
 Bill Roll 
 
-Project Proposal/Topic
+###Project Proposal/Topic
 ----------------
  When we think of potential harm in New York City, we primarily think of other people and manmade objects. However, there is a variation of wildlife that also 
 resides there as well. Looking at Central Park, specifically, several species of mammals, birds, and reptiles that also call the city their home. The members in our 
@@ -18,15 +18,15 @@ visualizations as we look to inform the public with our data.
 
 Are Squirrels Aggressive or Cute??
 
-Data Set
+#Data Set
 ----------------
 https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
 
-Supportive Article
+#Supportive Article
 ----------------
 https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-and-squirrels/
 
-Summary of Goals
+###Summary of Goals
 ----------------
 * Query data using API url.
 * Clean data in Jupyter notebook using pandas.
