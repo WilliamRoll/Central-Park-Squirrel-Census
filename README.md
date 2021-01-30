@@ -39,7 +39,7 @@ Summary of Goals
 * Plotting behavior of squirrels in visualizations such as scatterplot, heatmap etc. 
 
 # Summary of Steps Taken
-
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/static/img/Flowchart.png)
 ### Extracting Data
 * API Query Through https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
   * Assemble url query in string format and pull into Jupyter Notebook.
