@@ -44,13 +44,13 @@ Summary of Goals
 * API Query Through https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
   * Assemble url query in string format and pull into Jupyter Notebook.
   
-# Transforming Data
+### Transforming Data
 * Pandas
   * Pass the API query into a dataframe.
   * Clean columns that would render data unusable.
   * Convert dataframe back into a dictionary so that it can be loaded into a collection in MongoDB.
 
-# Loading Data
+### Loading Data
 * MongoDB
   * Load dictionary data from converted API query so that each dictionary item would represent a single item within the Squirrel collection.
   * House dataset so that it can be easily accessed from external applications as well as preventing the need to create csv files to hold data between querying,                             cleaning, and presenting.
@@ -58,7 +58,7 @@ Summary of Goals
   * Provide a platfrom to host a website on and link the webpates together through routing.
   * Query data into application and route the data to an API within our application that can further manipulated through D3 javascript scripts on any html webpage found within the project. 
 
-# Creation of  Visualizations
+### Creation of  Visualizations
 * Bar Graphs:
   * The two bar graphs focused on primary fur color (gray, cinnamon, and black), approaches, and indifference. The "approach" variable value relied on whether or not a squirrel approached a human for food, while the "indifferent" variable was determined by whether or not a squirrel was indifferent to human presence.
   * Primary fur color was used in both bar graphs, while the values of approach/indifference were given a numerical value of 1. Using conditional statements, the totals for each fur color was determined.
@@ -69,20 +69,16 @@ Summary of Goals
   * This visualization displays the geographic location of squirrels based on the behaviors recorded within our dataset. Behaviors chosen were: Approaching, Chasing, Climbing, Eating, Running, and Other. 
   * Each of these behaviors is given a unique icon and color to identify them on the map. A pop up will also display if the point is clicked on and will identify the behavior the point represents. Each of the overlays can be selected/unselected in order to only show certain behaviors at a time. 
 
-Inspiration
+### Inspiration
 ----------------
 
 
-Visuals
+### Visuals
 ----------------
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelApproach.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelIndifferent.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Pie.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Heatmap.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Markerplot.png)
-
-Status
-----------------
-In progress
 
 
