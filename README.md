@@ -62,6 +62,10 @@ https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squi
 * Heatmap:
   * The data set consists of geological locations of the squirrels. which was used to show the location of the squirrels.
   * It showed us there were a siginficant amount of squirrels. so you can look where they are and either avoid them or go look at them.	
+* Leaflet Squirrel Behavior Map:
+  * This visualization displays the geographic location of squirrels based on the behaviors recorded within our dataset. Behaviors chosen were: Approaching, Chasing, Climbing, Eating, Running, and Other. 
+  * Each of these behaviors is given a unique icon and color to identify them on the map. A pop up will also display if the point is clicked on and will identify the behavior the point represents. Each of the overlays can be selected/unselected in order to only show certain behaviors at a time. 
+
 Inspiration
 ----------------
 
