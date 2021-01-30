@@ -1,5 +1,5 @@
 # Project-2
-
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/static/img/squirrel_homepage.jpg)
 Members
 ----------------
 Rachel Chan,
@@ -16,9 +16,15 @@ group are interested in one such mammal, the squirrel. Our project aims to take 
 meaningfully to help keep natives, visitors, and the squirrels safe . Factors such as geological location, age, and behavior will all determine the outcomes of our
 visualizations as we look to inform the public with our data.
 
+Are Squirrels Aggressive or Cute??
+
 Data Set
 ----------------
 https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
+
+Supportive Article
+----------------
+https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-and-squirrels/
 
 Summary of Goals
 ----------------
@@ -45,21 +51,18 @@ https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squi
 *Extract: Our original data came from the API call 
 *Transform: Data cleaning or transformation was required in Jypter notebook.
 *Load: The final database was Mongo DB, tables/collections, and why this was chosen.
-
 * Loading Data
-
 ### MongoDB
-*
-
 ### Flask
-*
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/static/img/Flowchart.png)
 
 ### Creation of  Visualizations
 * Bar Graphs:
   * The two bar graphs focused on primary fur color (gray, cinnamon, and black), approaches, and indifference. The "approach" variable value relied on whether or not a squirrel approached a human for food, while the "indifferent" variable was determined by whether or not a squirrel was indifferent to human presence.
   * Primary fur color was used in both bar graphs, while the values of approach/indifference were given a numerical value of 1. Using conditional statements, the totals for each fur color was determined.
-
-
+* Heatmap:
+  * The data set consists of geological locations of the squirrels. which was used to show the location of the squirrels.
+  * It showed us there were a siginficant amount of squirrels. so you can look where they are and either avoid them or go look at them.	
 Inspiration
 ----------------
 
