@@ -61,6 +61,8 @@ h4 {
 #home{
     opacity:1
 }
+
+ /*  for background img, overflow made auto instead of hidden */
 body{
     background-image: url("../img/squirrel_homepage.jpg");
     background-repeat: no-repeat;

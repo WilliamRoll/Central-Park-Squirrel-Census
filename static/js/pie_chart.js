@@ -1,10 +1,9 @@
-// Pie Chart : 
+// Pie Chart : breakdown of behaviour
 
-//variables:  Primary Fur color : gray and cinnamon and Indifferent
+//variables:  Primary Fur color : gray and cinnamon and Indifferent behaviour
 // indifferent behavior - true or false?
 
-// need to update pie chart... 
-// switched from d3 to plotly
+// for pie chart, switched from d3 to plotly
 
 // color - brown and gray
 var color = ['rgb(210,105,30)','rgb (127,127,127)'];
@@ -49,7 +48,7 @@ d3.json("/raw-web-api", function (behaviorData) {
     width: 900
   };
   
-  // 
+  // utilizing plotly
   Plotly.newPlot('pie_chart', data, layout);
 
 });
