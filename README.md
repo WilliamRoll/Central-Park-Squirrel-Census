@@ -32,7 +32,6 @@ Summary of Goals
 * Query data into from project API to other webpages within the project
 * Plotting behavior of squirrels in visualizations such as scatterplot, heatmap etc. 
 
-
 Summary of Steps Taken
 ----------------
 
@@ -56,7 +55,7 @@ https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squi
 *
 
 ### Creation of  Visualizations
-* Heatmap 
+*
 
 
 
