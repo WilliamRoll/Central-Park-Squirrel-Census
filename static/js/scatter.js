@@ -70,36 +70,43 @@ d3.json("/raw-web-api", function (myData) {
     }
 
     var true_dict = {
-        "Gray": gray_approach_count,
-        "Cinnamon": cinnamon_approach_count,
-        "Black": black_approach_count
+        "Graytrue": gray_approach_count,
+        "Cinnamontrue": cinnamon_approach_count,
+        "Blacktrue": black_approach_count
     };
     console.log(true_dict)
 
     var false_dict = {
-        "Gray": gray_n_approach_count,
-        "Cinnamon": cinnamon_n_approach_count,
-        "Black": black_n_approach_count
+        "Grayfalse": gray_n_approach_count,
+        "Cinnamonfalse": cinnamon_n_approach_count,
+        "Blackfalse": black_n_approach_count
     };
     console.log(false_dict)
+
+    var all_dict = {
+        "Gray": gray_approach_count/(gray_approach_count+gray_n_approach_count),
+        "Cinnamon": cinnamon_approach_count/(cinnamon_approach_count+cinnamon_n_approach_count),
+        "Black": black_approach_count/(black_approach_count+black_n_approach_count)
+    };
+    console.log(all_dict)
     
     // converting data into array
-    const true_array = Object.entries(true_dict).map(([key, value]) => ({
+    const all_array = Object.entries(all_dict).map(([key, value]) => ({
     key: key,
     value: value
     }));
     
-    console.log(true_array)
+    console.log(all_array)
 
     // Configure a band scale for the horizontal axis with a padding of 0.1 (10%)
     var xBandScale2 = d3.scaleBand()
-        .domain(true_array.map(d => d.key))
+        .domain(all_array.map(d => d.key))
         .range([0, width2])
         .padding(0.1);
 
     // Create a linear scale for the vertical axis.
     var yLinearScale2 = d3.scaleLinear()
-        .domain([0, d3.max(true_array, d => d.value + 10)])
+        .domain([0, d3.max(all_array, d => d.value*100)+0.5])
         .range([height2, 0]);
 
     // Create two new functions passing our scales in as arguments
@@ -120,41 +127,33 @@ d3.json("/raw-web-api", function (myData) {
     var scaleY2 = 10; // 10x scale on rect height
   
     // Create a 'barWidth' variable so that the bar chart spans the entire chartWidth.
-    var barWidth2 = (width2 - (barSpacing2 * (true_array.length2 - 1))) / true_array.length2;
+    var barWidth2 = (width2 - (barSpacing2 * (all_array.length2 - 1))) / all_array.length2;
   
-    // GRID
-    
-    // chartGroup.append('g')
-    //     .attr('class', 'grid')
-    //     .call(d3.axisLeft()
-    //         .scale(yLinearScale)
-    //         .tickSize(-width, 0, 0)
-    //         .tickFormat(''))
-
-
 
     //APPENDING BARS
 
     var testGroup2 = chartGroup2.selectAll(".bar")
-    .data(true_array)
+    .data(all_array)
     .enter()
     .append("rect")
     .attr("class", "bar")
     .attr("x", d => xBandScale2(d.key))
-    .attr("y", d => yLinearScale2(d.value))
+    .attr("y", d => yLinearScale2(d.value*100))
     .attr("width", xBandScale2.bandwidth())
-    .attr("height", d => height2 - yLinearScale2(d.value))
+    .attr("height", d => height2 - yLinearScale2(d.value*100))
 
     // Step 1: Append tooltip div
     var toolTip2 = d3.select("body")
       .append("div")
       .classed("tooltip", true);
 
+
+
     // Step 2: Create "mouseover" event listener to display tooltip
     testGroup2.on("mouseover", function(d) {
       toolTip2.style("display", "block")
           .html(
-            `<strong>${d.key}<strong><hr>${d.value}`)
+            `<strong>${d.key}<strong><hr>${(d.value*100).toFixed(2)}%`)
           .style("left", d3.event.pageX + "px")
           .style("top", d3.event.pageY + "px");
     })
@@ -269,30 +268,37 @@ d3.json("/raw-web-api", function (myData) {
     console.log(indifferent_dict)
 
     var n_indifferent_dict = {
-        "Gray": gray_n_indifferent_count,
-        "Cinnamon": cinnamon_n_indifferent_count,
-        "Black": black_n_indifferent_count
+        "Grayf": gray_n_indifferent_count,
+        "Cinnamonf": cinnamon_n_indifferent_count,
+        "Blackf": black_n_indifferent_count
     };
     console.log(n_indifferent_dict)
+
+    var all_indifferent_dict = {
+        "Gray": gray_indifferent_count/(gray_indifferent_count+gray_n_indifferent_count),
+        "Cinnamon": cinnamon_indifferent_count/(cinnamon_indifferent_count+cinnamon_n_indifferent_count),
+        "Black": black_indifferent_count/(black_indifferent_count+black_n_indifferent_count)
+    };
+    console.log(all_indifferent_dict)
     
     
     // converting data into array
-    const indifferent_array = Object.entries(indifferent_dict).map(([key, value]) => ({
+    const all_indifferent_array = Object.entries(all_indifferent_dict).map(([key, value]) => ({
     key: key,
     value: value
     }));
     
-    console.log(indifferent_array)
+    console.log(all_indifferent_array)
 
     // Configure a band scale for the horizontal axis with a padding of 0.1 (10%)
     var xBandScale = d3.scaleBand()
-        .domain(indifferent_array.map(d => d.key))
+        .domain(all_indifferent_array.map(d => d.key))
         .range([0, width])
         .padding(0.1);
 
     // Create a linear scale for the vertical axis.
     var yLinearScale = d3.scaleLinear()
-        .domain([0, d3.max(indifferent_array, d => d.value + 10)])
+        .domain([0, d3.max(all_indifferent_array, d => d.value*100)+1])
         .range([height, 0]);
 
     // Create two new functions passing our scales in as arguments
@@ -313,20 +319,20 @@ d3.json("/raw-web-api", function (myData) {
     var scaleY = 10; // 10x scale on rect height
   
     // Create a 'barWidth' variable so that the bar chart spans the entire chartWidth.
-    var barWidth = (width - (barSpacing * (indifferent_array.length - 1))) / indifferent_array.length;
+    var barWidth = (width - (barSpacing * (all_indifferent_array.length - 1))) / all_indifferent_array.length;
   
 
     //APPENDING BARS
 
     var testGroup = chartGroup.selectAll(".bar")
-    .data(indifferent_array)
+    .data(all_indifferent_array)
     .enter()
     .append("rect")
     .attr("class", "bar")
     .attr("x", d => xBandScale(d.key))
-    .attr("y", d => yLinearScale(d.value))
+    .attr("y", d => yLinearScale(d.value*100))
     .attr("width", xBandScale.bandwidth())
-    .attr("height", d => height - yLinearScale(d.value))
+    .attr("height", d => height - yLinearScale(d.value*100))
 
     // Append tooltip div
     var toolTip = d3.select("body")
@@ -337,7 +343,7 @@ d3.json("/raw-web-api", function (myData) {
     testGroup.on("mouseover", function(d) {
       toolTip.style("display", "block")
           .html(
-            `<strong>${d.key}<strong><hr>${d.value}`)
+            `<strong>${d.key}<strong><hr>${(d.value*100).toFixed(2)}%`)
           .style("left", d3.event.pageX + "px")
           .style("top", d3.event.pageY + "px");
     })
