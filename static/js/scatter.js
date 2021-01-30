@@ -33,9 +33,14 @@ d3.json("/raw-web-api", function (myData) {
     console.log(data); 
 
     //Create counters for each fur color, if approach is true
+    //True
     var gray_approach_count=0
     var cinnamon_approach_count=0
-    var black_approach_count=0
+    var black_approach_count=0    
+    //False
+    var gray_n_approach_count=0
+    var cinnamon_n_approach_count=0
+    var black_n_approach_count=0
 
     // loop
     for (var index = 0; index < data.length; index++){
@@ -51,6 +56,17 @@ d3.json("/raw-web-api", function (myData) {
         else if (approach=="True" && primary_color=="Black") {
             black_approach_count+=1
         }
+
+        //If false:
+        else if(approach=="False" && primary_color=="Gray"){
+            gray_n_approach_count+=1
+        }
+        else if (approach=="False" && primary_color=="Cinnamon") {
+            cinnamon_n_approach_count+=1
+            }
+        else if (approach=="False" && primary_color=="Black") {
+            black_n_approach_count+=1
+        }
     }
 
     var true_dict = {
@@ -59,6 +75,13 @@ d3.json("/raw-web-api", function (myData) {
         "Black": black_approach_count
     };
     console.log(true_dict)
+
+    var false_dict = {
+        "Gray": gray_n_approach_count,
+        "Cinnamon": cinnamon_n_approach_count,
+        "Black": black_n_approach_count
+    };
+    console.log(false_dict)
     
     // converting data into array
     const true_array = Object.entries(true_dict).map(([key, value]) => ({
@@ -209,6 +232,9 @@ d3.json("/raw-web-api", function (myData) {
     var gray_indifferent_count=0
     var cinnamon_indifferent_count=0
     var black_indifferent_count=0
+    var gray_n_indifferent_count=0
+    var cinnamon_n_indifferent_count=0
+    var black_n_indifferent_count=0
 
     // loop
     for (var i = 0; i < data.length; i++){
@@ -224,6 +250,15 @@ d3.json("/raw-web-api", function (myData) {
         else if (indifferent=="True" && primary_f_color=="Black") {
             black_indifferent_count+=1
         }
+        else if(indifferent=="False" && primary_f_color=="Gray"){
+            gray_n_indifferent_count+=1
+        }
+        else if (indifferent=="False" && primary_f_color=="Cinnamon") {
+            cinnamon_n_indifferent_count+=1
+            }
+        else if (indifferent=="False" && primary_f_color=="Black") {
+            black_n_indifferent_count+=1
+        }
     }
 
     var indifferent_dict = {
@@ -232,6 +267,14 @@ d3.json("/raw-web-api", function (myData) {
         "Black": black_indifferent_count
     };
     console.log(indifferent_dict)
+
+    var n_indifferent_dict = {
+        "Gray": gray_n_indifferent_count,
+        "Cinnamon": cinnamon_n_indifferent_count,
+        "Black": black_n_indifferent_count
+    };
+    console.log(n_indifferent_dict)
+    
     
     // converting data into array
     const indifferent_array = Object.entries(indifferent_dict).map(([key, value]) => ({
