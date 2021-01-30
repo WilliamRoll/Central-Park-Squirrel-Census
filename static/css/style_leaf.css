@@ -13,30 +13,25 @@ body,
 
 
 
-.navbar-brand
-{
-   
-    padding: 4pt;
-    color:  #1BA098;
-}
-
-
-.navbar-light .navbar-brand {
-    color: #1BA098;
-    font-weight:bold;
-    font-size: 27px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-}
-
-
-.nav-item > a:hover {
-    background-color:#f5b978;
-    color: #087971;
-    
-
-}
-
+.navbar
+        {
+            border-bottom:5px solid #000000;
+        }
+  .navbar-brand
+        {
+            padding: 4pt;
+            color:  #1BA098;
+        }
+  .navbar-light .navbar-brand {
+      color: #006400;
+      font-weight:bold;
+      font-size: 27px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .nav-item > a:hover {
+      background-color:#006400;
+      color: white;
+  }
 .dropdown-menu > a:hover {
     background-color:#f5b978;
     color: #087971;
