@@ -59,6 +59,8 @@ https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-
 * Bar Graphs:
   * The two bar graphs focused on primary fur color (gray, cinnamon, and black), approaches, and indifference. The "approach" variable value relied on whether or not a squirrel approached a human for food, while the "indifferent" variable was determined by whether or not a squirrel was indifferent to human presence.
   * Primary fur color was used in both bar graphs, while the values of approach/indifference were given a numerical value of 1. Using conditional statements, the totals for each fur color was determined.
+ * Pie Chart:
+   * The pie chart is a breakdown of the behaviour of squirrels in Central Park. The pie chart looks at the correlation between the behaviour of two kinds of squirrels colored gray and cinnamon. The goal of the pie chart is to analyze how the two fur colored squirrels show indifference to the residents in Central Park. Lastly, Plotly was used to create this pie chart. 
 * Heatmap:
   * The data set consists of geological locations of the squirrels. which was used to show the location of the squirrels.
   * It showed us there were a siginficant amount of squirrels. so you can look where they are and either avoid them or go look at them.	
