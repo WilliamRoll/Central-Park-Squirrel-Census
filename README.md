@@ -29,17 +29,18 @@ https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-
 Summary of Goals
 ----------------
 * Query data using API url.
-* Clean data in Jupyter notebook using pandas
-* Pass dataframe into a dictionary and then insert dictionary items as documents into MongoDB
-* Create Flask application to host website and provide channels to other pages
-* Query MongoDB data into python application  
-* Establish API of our own data
-* Create responsive webpage with multiple places to house information
-* Query data into from project API to other webpages within the project
+* Clean data in Jupyter notebook using pandas.
+* Pass dataframe into a dictionary and then insert dictionary items as documents into MongoDB.
+* Create Flask application to host website and provide channels to other pages.
+* Query MongoDB data into python application.
+* Establish API of our own data.
+* Create responsive webpage with multiple places to house information.
+* Query data into from project API to other webpages within the project.
 * Plotting behavior of squirrels in visualizations such as scatterplot, heatmap etc. 
 
-Summary of Steps Taken
-# Extracting Data
+# Summary of Steps Taken
+
+### Extracting Data
 * API Query Through https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
   * Assemble url query in string format and pull into Jupyter Notebook.
   
