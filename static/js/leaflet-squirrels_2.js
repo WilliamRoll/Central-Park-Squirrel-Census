@@ -112,9 +112,10 @@ d3.json("/raw-web-api", function (mydata) {
 
   // Initialize a squirrel status code that will allow us to access the layers and icons
   var squirrel_status;
-  // Loop through the stations (they're the same size and have partially matching data)
+  // Loop through the squirrel dataset
   for (var i = 0; i < response.length; i++) {
-  // Create a new station object with properties of both station objects
+  
+    // If statement that will assign a behavior status to each squirrel
       if (response[i].approaches == "True") {
         squirrel_status = "SQUIRREL_APPROACH"; 
       }
@@ -135,6 +136,7 @@ d3.json("/raw-web-api", function (mydata) {
       }
 
       console.log(squirrel_status)
+
       var location = response[i].geocoded_column;
       
       // Create a new marker with the appropriate icon and coordinates
@@ -142,7 +144,7 @@ d3.json("/raw-web-api", function (mydata) {
         icon: icons[squirrel_status]
       });
 
-      // // Add the new marker to the appropriate layer
+      // Add the new marker to the appropriate layer
       newMarker.addTo(layers[squirrel_status]);
 
       // Bind a popup to the marker that will  display on click. This will be rendered as HTML
