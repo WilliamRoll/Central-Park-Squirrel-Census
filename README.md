@@ -66,8 +66,7 @@ https://nypost.com/2019/03/22/animal-lovers-rip-proposed-ban-on-feeding-pigeons-
   * Each of these behaviors is given a unique icon and color to identify them on the map. A pop up will also display if the point is clicked on and will identify the behavior the point represents. Each of the overlays can be selected/unselected in order to only show certain behaviors at a time. 
 ----------------
 # Visuals
-![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelApproach.png)
-![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/SquirrelIndifferent.png)
+![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/barcharts.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Pie.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Heatmap.png)
 ![alt text](https://github.com/WilliamRoll/Project-2/blob/main/images/Markerplot.png)
